@@ -36,6 +36,12 @@ uv run bandit -r src/
    - Test coverage and edge-case review
    - Security review
 
+Use prompts like:
+
+- `@code-reviewer review this release diff for architecture violations, type-safety regressions, and missing tests.`
+- `Use python-testing: review changed tests for missing assertions and uncovered edge cases in this release.`
+- `Use security-audit: perform an OWASP-focused review of changed files and rank findings by severity.`
+
 ## Tagging And Publishing
 
 1. Merge the release prep PR into main.
