@@ -1,17 +1,40 @@
 ---
 name: python-testing
 description: >
-  Use when writing, reviewing, improving, or generating pytest test suites for
-  Python and FastAPI applications. Covers unit tests, integration tests, async
-  tests, fixture design, mocking strategy, parametrize patterns, and coverage gaps.
-  Trigger on: "write tests", "add tests", "test this", "improve test coverage",
-  "generate test suite", "what should I test", "my test is failing".
+    Use when writing, reviewing, improving, or generating pytest test suites for
+    Python applications in this starter. Covers unit tests, integration smoke tests,
+    fixture design, mocking strategy, parametrize patterns, CLI command contract
+    testing, and coverage gaps. Trigger on: "write tests", "add tests", "test this",
+    "improve test coverage", "generate test suite", "what should I test",
+    "my test is failing", "cli test", "command contract".
 ---
 
 # Python Testing Skill
 
 This skill produces **meaningful tests** — tests that catch real bugs, not
 tests that just hit coverage numbers. Every test must assert actual behavior.
+
+## Repository Alignment
+
+For this project, prioritize these locations and patterns:
+
+- CLI unit tests: `tests/unit/test_cli.py`
+- CLI integration smoke tests: `tests/integration/test_cli_smoke.py`
+- Core module tests: `tests/unit/test_config.py`, `tests/unit/test_logging.py`, `tests/unit/test_exceptions.py`
+
+Use sync pytest tests by default for CLI command dispatch unless async behavior is explicit.
+Treat command behavior as a public contract.
+
+## CLI Contract Testing Checklist
+
+When testing CLI changes, cover all of the following:
+
+- Command dispatch for each supported command and subcommand
+- Exit code behavior for success and failure
+- Stable stderr output for deterministic error paths
+- Stable stdout/output structure for normal paths
+- JSON output shape for `starter config show`
+- `starter --version` output prefix and non-error behavior
 
 ## Testing Philosophy
 

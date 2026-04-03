@@ -1,17 +1,34 @@
 ---
 name: security-audit
 description: >
-  Use when auditing, reviewing, or hardening Python/FastAPI code for security
-  vulnerabilities. Covers OWASP Top 10, injection, authentication, secrets
-  management, dependency scanning, input validation, and secure defaults.
+    Use when auditing, reviewing, or hardening Python code for security
+    vulnerabilities. Covers OWASP Top 10, injection, secrets management,
+    dependency scanning, input validation, secure defaults, and CLI threat models.
   Trigger on: "security review", "audit this code", "is this secure",
-  "check for vulnerabilities", "OWASP", "pentest findings", "security hardening".
+    "check for vulnerabilities", "OWASP", "pentest findings", "security hardening",
+    "cli security", "command injection".
 ---
 
 # Security Audit Skill
 
 This skill performs a structured security review against the OWASP Top 10 and
 Python-specific vulnerability patterns. Work through each category systematically.
+
+## Repository Alignment
+
+For this project, include a CLI-focused review in addition to OWASP categories:
+
+- `src/starter/cli.py` command dispatch and error handling
+- `src/starter/config.py` configuration loading and validation errors
+- `src/starter/logging.py` logging output and secret-safe behavior
+
+### CLI-Specific Security Checklist
+
+- [ ] No shell execution paths (`shell=True`) and no command injection vectors
+- [ ] No secret or token leakage in stdout/stderr output
+- [ ] Deterministic error messages do not expose environment internals
+- [ ] `config show` output excludes secrets by design
+- [ ] Logs and command output avoid sensitive values
 
 ## Audit Checklist
 

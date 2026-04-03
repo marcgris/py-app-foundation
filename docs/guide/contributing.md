@@ -64,9 +64,11 @@ The base template currently enables a quality-focused subset only:
 
 1. Skills:
    - `.github/skills/dependency-management/`
+   - `.github/skills/python-cli-overlay/`
    - `.github/skills/python-testing/`
    - `.github/skills/python-refactor/`
    - `.github/skills/security-audit/`
+   - `.github/skills/observability/`
 2. Agent:
    - `.github/agents/code-reviewer.agent.md`
 
@@ -85,13 +87,19 @@ Use these prompts directly in Agent mode for consistent results:
 2. python-testing
    - "Use python-testing: add meaningful tests for <file> covering happy path, edge cases, and failure modes."
    - "Use python-testing: review existing tests in <file> and identify missing assertions or scenarios."
-3. python-refactor
+3. python-cli-overlay
+   - "Use python-cli-overlay: add a new CLI command with parser wiring, deterministic error handling, and tests."
+   - "Use python-cli-overlay: verify command contract stability for exit codes, stderr, and output schema."
+4. python-refactor
    - "Use python-refactor: refactor <file> to reduce coupling while preserving behavior and tests."
    - "Use python-refactor: identify top code smells in <file> and apply smallest safe improvements first."
-4. security-audit
+5. security-audit
    - "Use security-audit: perform a structured OWASP-focused review of <file/folder> with severity-ranked findings."
    - "Use security-audit: verify no secrets/logging leaks and check injection risks in <file>."
-5. code-reviewer agent
+6. observability
+   - "Use observability: improve logging and diagnostics for <command/module> using starter logging patterns."
+   - "Use observability: review this change for secret-safe logs and useful operational signals."
+7. code-reviewer agent
    - "@code-reviewer review <file or PR diff> for architecture violations, type safety gaps, regression risk, and missing tests."
 
 Expected output for reviews:
