@@ -68,9 +68,7 @@ class TestLoadSettings:
         assert isinstance(settings, Settings)
         assert settings.debug is False
 
-    def test_load_settings_from_environment(
-        self, monkeypatch: pytest.MonkeyPatch
-    ) -> None:
+    def test_load_settings_from_environment(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that load_settings respects environment variables."""
         monkeypatch.setenv("APP_NAME", "custom-app")
 
@@ -78,9 +76,7 @@ class TestLoadSettings:
 
         assert settings.app_name == "custom-app"
 
-    def test_load_settings_invalid_raises_error(
-        self, monkeypatch: pytest.MonkeyPatch
-    ) -> None:
+    def test_load_settings_invalid_raises_error(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that load_settings raises on invalid settings."""
         monkeypatch.setenv("LOG_LEVEL", "INVALID")
 
