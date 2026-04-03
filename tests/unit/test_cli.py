@@ -1,5 +1,7 @@
 """Tests for the CLI module."""
 
+import json
+
 import pytest
 
 from starter.cli import build_parser, main
@@ -15,6 +17,15 @@ class TestBuildParser:
         parsed = parser.parse_args(["health"])
 
         assert parsed.command == "health"
+
+    def test_build_parser_supports_config_show(self) -> None:
+        """Test that parser recognizes the config show command."""
+        parser = build_parser()
+
+        parsed = parser.parse_args(["config", "show"])
+
+        assert parsed.command == "config"
+        assert parsed.config_command == "show"
 
 
 class TestMain:
@@ -39,3 +50,16 @@ class TestMain:
         exit_code = main(["not-a-command"])
 
         assert exit_code == 2
+
+    def test_main_config_show_returns_settings_json(
+        self, capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        """Test that config show prints settings as JSON and exits zero."""
+        exit_code = main(["config", "show"])
+
+        captured = capsys.readouterr()
+        payload = json.loads(captured.out)
+        assert exit_code == 0
+        assert payload["app_name"] == "starter"
+        assert payload["debug"] is False
+        assert payload["log_level"] == "INFO"

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from collections.abc import Sequence
 
 from starter.config import load_settings
@@ -25,6 +26,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     subparsers.add_parser("health", help="Run a lightweight health check.")
 
+    config_parser = subparsers.add_parser("config", help="Configuration commands.")
+    config_subparsers = config_parser.add_subparsers(dest="config_command")
+    config_subparsers.required = True
+    config_subparsers.add_parser("show", help="Print resolved runtime configuration.")
+
     return parser
 
 
@@ -40,6 +46,17 @@ def _run_health_command() -> int:
     logger = get_logger("starter.cli")
     logger.info("Health check passed", extra=log_context(app_name=settings.app_name))
     print("ok")
+    return 0
+
+
+def _run_config_show_command() -> int:
+    """Print resolved runtime settings.
+
+    Returns:
+        Process exit code (0 on success).
+    """
+    settings = load_settings()
+    print(json.dumps(settings.to_dict(), sort_keys=True))
     return 0
 
 
@@ -61,6 +78,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     if parsed_args.command == "health":
         try:
             return _run_health_command()
+        except ConfigError as exc:
+            print(f"Configuration error: {exc}")
+            return 1
+
+    if parsed_args.command == "config" and parsed_args.config_command == "show":
+        try:
+            return _run_config_show_command()
         except ConfigError as exc:
             print(f"Configuration error: {exc}")
             return 1
