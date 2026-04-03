@@ -30,6 +30,7 @@ uv run bandit -r src/
 
 5. Confirm CI is green on the release PR.
 6. Verify docs are current for any user-facing changes.
+7. Update the overlay compatibility matrix in `docs/guide/index.md` (status, introduced version, and stable-as-of fields).
 
 ## Tagging And Publishing
 

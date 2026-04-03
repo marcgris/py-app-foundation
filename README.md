@@ -51,7 +51,7 @@ uv run bandit -r src/      # Security scanning
 
 ## Python Version
 
-Requires Python 3.11 or later. See `.python-version` for the pinned version.
+Requires Python 3.14 or later. See `.python-version` for the pinned version.
 
 ## License
 

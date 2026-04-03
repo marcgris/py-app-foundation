@@ -29,7 +29,7 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 4. Security scanning and supply-chain checks.
 5. CI workflows and local validation workflow.
 6. Agent instruction files and guardrails.
-7. First-wave overlays for CLI, API, and worker projects.
+7. First-wave overlays for CLI, API, worker, and UI projects.
 8. Planning artifacts and handoff process.
 
 ## Out of Scope
@@ -45,7 +45,7 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 1. **Phase 1**: Planning artifacts, scope boundaries, and architecture decisions. ✅ Complete
 2. **Phase 2**: Core template skeleton and repository structure. 🔄 In Progress
 3. **Phase 3**: Agent workflow, validation stack, and CI guardrails.
-4. **Phase 4**: CLI, API, and worker overlays.
+4. **Phase 4**: CLI, API, worker, and UI overlays.
 5. **Phase 5**: Validation, sample generation, and release readiness.
 
 ## Current Focus
@@ -62,9 +62,28 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 4. Create the CLI overlay skeleton.
 5. Create the API overlay skeleton.
 6. Create the worker overlay skeleton.
-7. Verify all three overlays pass validation.
-8. Document the bootstrap and generation process.
-9. Prepare v1 release and maintenance guidelines.
+7. Create the UI overlay skeleton.
+8. Verify all four overlays pass validation.
+9. Document the bootstrap and generation process.
+10. Prepare v1 release and maintenance guidelines.
+
+## Future Overlay Backlog
+
+1. Scheduled jobs/cron profile.
+2. Data/ETL pipeline profile.
+3. MCP server profile.
+4. Library/package-only profile.
+
+## Recommended Overlay Implementation Order
+
+1. CLI overlay (first proof-of-concept for overlay model)
+2. UI overlay (high anticipated project demand)
+3. API overlay (service boundary patterns)
+4. Worker overlay (background execution patterns)
+5. MCP server profile (backlog)
+6. Scheduled jobs/cron profile (backlog)
+7. Data/ETL pipeline profile (backlog)
+8. Library/package-only profile (backlog)
 
 ## Risks
 

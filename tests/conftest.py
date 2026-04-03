@@ -12,7 +12,7 @@ from starter.logging import get_logger
 
 
 @pytest.fixture
-def temp_env_file() -> Generator[Path, None, None]:
+def temp_env_file() -> Generator[Path]:
     """Provide a temporary .env file for testing.
 
     Yields:

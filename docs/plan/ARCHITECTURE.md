@@ -56,6 +56,17 @@ The starter uses a layered model: one reusable core foundation plus optional ove
 - Scheduler or queue integration boundary
 - Worker-focused validation and examples
 
+### UI Overlay
+- Adds frontend project structure and build workflow
+- Defines local dev integration boundary to backend services
+- UI-focused validation and examples
+
+### Future Candidate Overlays (Backlog)
+- Scheduled jobs/cron profile
+- Data/ETL pipeline profile
+- MCP server profile
+- Library/package-only profile
+
 ## Cross-Cutting Concerns
 
 1. **Configuration**: Environment-driven and typed via pydantic-settings.

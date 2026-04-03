@@ -69,8 +69,46 @@ This core is designed to be extended:
 - **CLI Overlay**: For command-line applications
 - **API Overlay**: For web services
 - **Worker Overlay**: For background jobs and scheduled tasks
+- **UI Overlay**: For frontend and UI-heavy applications
 
 Each overlay adds minimal framework-specific code while inheriting the core's validation and guardrails.
+
+### Overlay Compatibility Matrix
+
+Use this matrix to track base template and overlay maturity while keeping a single repository version stream.
+
+| Overlay | Status | Introduced In | Last Breaking Change | Current Stable As Of | Notes |
+|---------|--------|---------------|----------------------|----------------------|-------|
+| Core/Base Template | Beta | v0.1.0 | N/A | v0.1.1 | Implemented and validated; overall project remains pre-v1 |
+| CLI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| API | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| Worker | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| UI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| Scheduled Jobs/Cron | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Data/ETL Pipeline | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| MCP Server | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Library/Package-Only | Backlog | N/A | N/A | N/A | Candidate for later demand |
+
+Status definitions:
+
+- Planned: designed but not implemented
+- Backlog: candidate overlay tracked for future planning
+- Experimental: implemented, may change quickly
+- Beta: feature-complete for trial usage
+- Stable: production-ready with managed compatibility expectations
+
+Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is released, all planned overlays pass the full validation gate, and release documentation confirms no open v1 exit criteria.
+
+Recommended implementation order (current):
+
+1. CLI
+2. UI
+3. API
+4. Worker
+5. MCP Server (backlog)
+6. Scheduled Jobs/Cron (backlog)
+7. Data/ETL Pipeline (backlog)
+8. Library/Package-Only (backlog)
 
 ## Design Philosophy
 

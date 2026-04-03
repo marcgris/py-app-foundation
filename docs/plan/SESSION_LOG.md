@@ -4,6 +4,108 @@ Reverse chronological entries. One entry per meaningful work session.
 
 ---
 
+## Session: 2026-04-03 Overlay Portfolio Expansion
+
+**Session Goal**: Document expanded overlay planning scope for near-term and future reference.
+
+**What Changed**
+- Added UI as the fourth planned overlay in roadmap, architecture, and guide docs
+- Added future overlay backlog candidates: scheduled jobs/cron, data/ETL pipeline, MCP server, and library/package-only
+- Updated decision log to supersede the original three-overlay decision
+- Expanded the overlay compatibility matrix to include all planned and backlog overlays
+
+**Decisions Made**
+- Near-term planned overlays are now CLI, API, worker, and UI
+- Additional overlays are documented as backlog only (no immediate implementation commitment)
+
+**Open Questions**
+- UI stack selection details will be finalized during UI overlay design
+
+**Deferred Work**
+- Implementation of all overlays remains deferred until planned execution phases
+
+**Blockers**
+- None
+
+**Recommended Next Step**
+- Continue with CLI overlay implementation as the first proof-of-concept
+
+---
+
+## Session: 2026-04-03 Python 3.14 Baseline Upgrade
+
+**Session Goal**: Upgrade the project baseline to the latest stable Python version and verify all quality gates pass.
+
+**What Changed**
+- Upgraded project baseline from Python 3.11 to Python 3.14 across metadata, tooling, and CI configuration
+- Updated `pyproject.toml` fields: `requires-python`, classifiers, Ruff `target-version`, Pyright `pythonVersion`, and mypy `python_version`
+- Updated `.python-version` to `3.14`
+- Updated workflow runners in `.github/workflows/ci.yml` and `.github/workflows/security.yml` to use Python 3.14
+- Updated `.pre-commit-config.yaml` Pyright hook argument to `--pythonversion 3.14`
+- Updated Python version statement in `README.md`
+- Regenerated `uv.lock` for the new interpreter baseline
+- Applied one compatibility lint fix in `tests/conftest.py` (`Generator[Path, None, None]` -> `Generator[Path]`)
+
+**Validation Results**
+- Runtime: Python 3.14.0
+- Ruff lint: pass
+- Ruff format check: pass
+- Pyright type check: pass (0 errors)
+- Pytest: pass (44 passed)
+- Coverage: pass (97.10%, threshold 80%)
+- Bandit: pass (no issues identified)
+
+**Decisions Made**
+- Standardize v1 baseline on Python 3.14 for local development and CI
+
+**Open Questions**
+- None for this milestone
+
+**Deferred Work**
+- Continue roadmap execution with CLI overlay proof-of-concept
+
+**Blockers**
+- None
+
+**Recommended Next Step**
+- Start Recommendation 2: implement the CLI overlay skeleton and tests
+
+---
+
+## Session: 2026-04-03 Validation Gate Confirmation
+
+**Session Goal**: Confirm Recommendation 1 by running the full local validation workflow and recording results.
+
+**What Changed**
+- Ran local validation workflow from the release checklist: `uv sync`, `uv run ruff check .`, `uv run ruff format . --check`, `uv run pyright src/`, `uv run pytest tests/ -v`, `uv run bandit -r src/`
+- Resolved a local tool entrypoint issue (`Failed to canonicalize script path`) by reinstalling `pyright`, `pytest`, and `bandit` in the project virtual environment
+- Re-ran full validation successfully after repair
+
+**Validation Results**
+- Ruff lint: pass
+- Ruff format check: pass
+- Pyright type check: pass (0 errors)
+- Pytest: pass (44 passed)
+- Coverage: pass (97.10%, threshold 80%)
+- Bandit: pass (no issues identified)
+
+**Decisions Made**
+- Keep Recommendation 1 definition as: validation run + results recorded in session log
+
+**Open Questions**
+- None for this milestone
+
+**Deferred Work**
+- CLI overlay proof-of-concept (next recommendation)
+
+**Blockers**
+- None
+
+**Recommended Next Step**
+- Start CLI overlay skeleton with tests and documentation updates
+
+---
+
 ## Session: 2026-03-29 Initial Scaffolding
 
 **Session Goal**: Create the repository skeleton, planning documents, and core starter modules with passing validation.

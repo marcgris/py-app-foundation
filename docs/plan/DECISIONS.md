@@ -4,10 +4,28 @@ Lightweight ADR-style log. Newest first.
 
 ---
 
+## Decision D-008
+
+**Date**: 2026-04-03  
+**Status**: Accepted  
+**Decision**: Expand near-term overlays to four (CLI, API, worker, UI) and track four additional overlay candidates as backlog (scheduled jobs, data/ETL, MCP server, library-only).
+
+**Context**: Near-term project demand includes UI-heavy work, while several additional project shapes are likely but not immediate implementation priorities.
+
+**Alternatives Considered**:
+- Keep only three overlays until all are implemented
+- Add many overlays immediately
+
+**Consequences**: The roadmap reflects near-term priorities clearly while preserving focus by separating planned overlays from future candidates.
+
+**Follow-up**: Keep the overlay compatibility matrix current as overlays move from planned to implemented and stable.
+
+---
+
 ## Decision D-007
 
 **Date**: 2026-03-29  
-**Status**: Accepted  
+**Status**: Superseded by D-008  
 **Decision**: Start with three overlays only: CLI, API, and worker.
 
 **Context**: The starter must be reusable without becoming too abstract or too fragmented.

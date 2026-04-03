@@ -11,15 +11,13 @@ license = { text = "Apache-2.0" }
 authors = [
     { name = "Py App Foundation Contributors" }
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.14"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
     "pydantic>=2.0",
@@ -78,7 +76,7 @@ exclude_lines = [
 ]
 
 [tool.ruff]
-target-version = "py311"
+target-version = "py314"
 line-length = 100
 src = ["src", "tests"]
 
@@ -103,10 +101,10 @@ reportUnusedVariable = true
 reportMissingTypeStubs = false
 reportPrivateUsage = "warning"
 reportUnknownArgumentType = "warning"
-pythonVersion = "3.11"
+pythonVersion = "3.14"
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.14"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
