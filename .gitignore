@@ -121,6 +121,10 @@ dmypy.json
 
 # IDE specific files
 .vscode/
+!.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/mcp.json
 .idea/
 *.swp
 *.swo
