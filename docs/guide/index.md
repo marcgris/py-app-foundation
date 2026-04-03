@@ -118,12 +118,12 @@ Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is relea
 Move CLI from Experimental to Beta only when all checklist items are completed:
 
 - [ ] CLI command contract is documented and frozen for one release cycle.
-- [ ] Command names and semantics are stable for `starter health`, `starter config show`, and `starter --version`.
+- [x] Command names and semantics are stable for `starter health`, `starter config show`, and `starter --version`.
 - [ ] Exit codes are documented and covered by tests.
 - [ ] Deterministic config-error stderr format is documented and covered by tests.
-- [ ] `config show` JSON output shape is documented and covered by tests.
-- [ ] Unit and integration smoke tests for CLI commands are passing in CI.
-- [ ] Validation gates pass with no CLI-specific exceptions: ruff, pyright, pytest, and bandit.
+- [x] `config show` JSON output shape is documented and covered by tests.
+- [x] Unit and integration smoke tests for CLI commands are passing in CI.
+- [x] Validation gates pass with no CLI-specific exceptions: ruff, pyright, pytest, and bandit.
 - [ ] Changelog and release notes include the CLI compatibility statement for the release where status changes to Beta.
 
 Recommended implementation order (current):
