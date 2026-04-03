@@ -8,9 +8,7 @@ version = "0.2.1"
 description = "A reusable, professional Python app foundation for building secure, well-designed applications"
 readme = "README.md"
 license = { text = "Apache-2.0" }
-authors = [
-    { name = "Py App Foundation Contributors" }
-]
+authors = [{ name = "Py App Foundation Contributors" }]
 requires-python = ">=3.14"
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -19,10 +17,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.14",
 ]
-dependencies = [
-    "pydantic>=2.0",
-    "pydantic-settings>=2.0",
-]
+dependencies = ["pydantic>=2.0", "pydantic-settings>=2.0"]
 
 [project.optional-dependencies]
 dev = [
@@ -81,7 +76,20 @@ line-length = 100
 src = ["src", "tests"]
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "N", "UP", "BLE", "C4", "PIE", "RET", "PERF", "PLW"]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "N",
+    "UP",
+    "BLE",
+    "C4",
+    "PIE",
+    "RET",
+    "PERF",
+    "PLW",
+]
 ignore = ["PLW2901"]
 exclude = [".git", ".venv", "venv", "__pycache__", "build", "dist"]
 
@@ -90,7 +98,7 @@ known-first-party = ["starter"]
 known-third-party = ["pydantic"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**" = ["F841"]  # Unused variables in tests are okay
+"tests/**" = ["F841"] # Unused variables in tests are okay
 
 [tool.pyright]
 include = ["src/starter", "tests"]

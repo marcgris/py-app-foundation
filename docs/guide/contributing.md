@@ -75,6 +75,31 @@ Scope note:
 - These capabilities are intended for base-template quality workflows.
 - Overlay-specific skills (for API, worker, UI, etc.) remain deferred until overlay implementation phases.
 
+### Copilot Invocation Cookbook (Phase A)
+
+Use these prompts directly in Agent mode for consistent results:
+
+1. dependency-management
+   - "Use dependency-management: add <package> as a runtime dependency and update pyproject/lock safely."
+   - "Use dependency-management: explain version constraint options for <package> and recommend one for this repo."
+2. python-testing
+   - "Use python-testing: add meaningful tests for <file> covering happy path, edge cases, and failure modes."
+   - "Use python-testing: review existing tests in <file> and identify missing assertions or scenarios."
+3. python-refactor
+   - "Use python-refactor: refactor <file> to reduce coupling while preserving behavior and tests."
+   - "Use python-refactor: identify top code smells in <file> and apply smallest safe improvements first."
+4. security-audit
+   - "Use security-audit: perform a structured OWASP-focused review of <file/folder> with severity-ranked findings."
+   - "Use security-audit: verify no secrets/logging leaks and check injection risks in <file>."
+5. code-reviewer agent
+   - "@code-reviewer review <file or PR diff> for architecture violations, type safety gaps, regression risk, and missing tests."
+
+Expected output for reviews:
+
+1. Findings ordered by severity (must-fix first)
+2. Concrete remediation guidance with file-level references
+3. Explicit statement when no material findings are present
+
 ### Allowed Operations
 
 - ✅ Read any file under `src/` and `tests/`

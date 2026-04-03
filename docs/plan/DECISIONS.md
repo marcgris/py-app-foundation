@@ -6,8 +6,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-009
 
-**Date**: 2026-04-03  
-**Status**: Accepted  
+**Date**: 2026-04-03
+**Status**: Accepted
 **Decision**: Adopt Copilot tools, agents, and skills incrementally (foundation -> overlay-aware -> advanced), and retire the temporary adoption plan once successful practices are embedded in standard project documentation.
 
 **Context**: The project should improve software quality through Copilot capabilities without overfitting to one framework or introducing unnecessary process overhead.
@@ -24,8 +24,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-008
 
-**Date**: 2026-04-03  
-**Status**: Accepted  
+**Date**: 2026-04-03
+**Status**: Accepted
 **Decision**: Expand near-term overlays to four (CLI, API, worker, UI) and track four additional overlay candidates as backlog (scheduled jobs, data/ETL, MCP server, library-only).
 
 **Context**: Near-term project demand includes UI-heavy work, while several additional project shapes are likely but not immediate implementation priorities.
@@ -42,8 +42,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-007
 
-**Date**: 2026-03-29  
-**Status**: Superseded by D-008  
+**Date**: 2026-03-29
+**Status**: Superseded by D-008
 **Decision**: Start with three overlays only: CLI, API, and worker.
 
 **Context**: The starter must be reusable without becoming too abstract or too fragmented.
@@ -60,8 +60,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-006
 
-**Date**: 2026-03-29  
-**Status**: Accepted  
+**Date**: 2026-03-29
+**Status**: Accepted
 **Decision**: Prefer `uv` for environment and dependency management.
 
 **Context**: The starter should optimize for speed, simplicity, and a modern Python workflow.
@@ -79,8 +79,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-005
 
-**Date**: 2026-03-29  
-**Status**: Accepted  
+**Date**: 2026-03-29
+**Status**: Accepted
 **Decision**: Prefer `pyright` as the default type checker.
 
 **Context**: The starter should align with VS Code workflows and fast local feedback.
@@ -97,8 +97,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-004
 
-**Date**: 2026-03-29  
-**Status**: Accepted  
+**Date**: 2026-03-29
+**Status**: Accepted
 **Decision**: Keep deployment abstract in v1.
 
 **Context**: The deployment target is not yet selected and should not distort the starter design.
@@ -115,8 +115,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-003
 
-**Date**: 2026-03-29  
-**Status**: Accepted  
+**Date**: 2026-03-29
+**Status**: Accepted
 **Decision**: Agents may implement changes but must not merge.
 
 **Context**: The workflow should benefit from autonomous code generation without removing human review.
@@ -133,8 +133,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-002
 
-**Date**: 2026-03-29  
-**Status**: Accepted  
+**Date**: 2026-03-29
+**Status**: Accepted
 **Decision**: Use balanced security defaults.
 
 **Context**: The starter should be secure by default without imposing heavy compliance friction on every project.
@@ -151,8 +151,8 @@ Lightweight ADR-style log. Newest first.
 
 ## Decision D-001
 
-**Date**: 2026-03-29  
-**Status**: Accepted  
+**Date**: 2026-03-29
+**Status**: Accepted
 **Decision**: Use one core starter plus overlays rather than many separate base templates.
 
 **Context**: The starter must support multiple Python app types while preserving consistency and reuse.
