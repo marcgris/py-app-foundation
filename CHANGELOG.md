@@ -6,6 +6,33 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-04-03
+
+### Added
+- Phase A Copilot workspace enablement files under `.vscode/`:
+	- `settings.json` (strict analysis, Copilot settings, cross-platform terminal env)
+	- `extensions.json` (lean recommended extension baseline)
+	- `mcp.json` (minimal MCP servers: github, filesystem, fetch, git)
+- Quality-focused Copilot skill set in `.github/skills/`:
+	- `dependency-management`
+	- `python-testing`
+	- `python-refactor`
+	- `security-audit`
+- `code-reviewer` agent in `.github/agents/` for architecture/type/security/test-focused review.
+- Copilot invocation cookbook in contributor documentation for repeatable skill and agent usage.
+- Concrete AI-assisted review prompts in the release checklist.
+
+### Changed
+- Updated `.gitignore` to track selected workspace config files:
+	- `.vscode/settings.json`
+	- `.vscode/extensions.json`
+	- `.vscode/mcp.json`
+- Normalized `code-reviewer` agent configuration for portability (`model: auto`) and valid tool references.
+- Aligned dependency-management skill examples and snippets to Python 3.14 baseline.
+
+### Documentation
+- Extended roadmap/contributing/release docs for incremental Copilot adoption and review-gate operationalization.
+
 ## [0.2.0] - 2026-04-03
 
 ### Added
