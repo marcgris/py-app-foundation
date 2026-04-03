@@ -43,16 +43,16 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 ## Phase Plan
 
 1. **Phase 1**: Planning artifacts, scope boundaries, and architecture decisions. ✅ Complete
-2. **Phase 2**: Core template skeleton and repository structure. 🔄 In Progress
+2. **Phase 2**: Core template skeleton and repository structure. ✅ Complete
 3. **Phase 3**: Agent workflow, validation stack, and CI guardrails.
 4. **Phase 4**: CLI, API, worker, and UI overlays.
 5. **Phase 5**: Validation, sample generation, and release readiness.
 
 ## Current Focus
 
-- **Active Phase**: Phase 2
-- **Objective**: Create the repository skeleton, planning documents, and core starter modules with passing validation.
-- **Current Owner**: Initial scaffolding
+- **Active Phase**: Phase 4 (CLI overlay kickoff)
+- **Objective**: Implement the first overlay (CLI) as the proof-of-concept for the overlay model while preserving core validation guarantees.
+- **Current Owner**: Overlay implementation
 
 ## Copilot Capability Adoption Plan
 
@@ -97,9 +97,9 @@ Retire this roadmap subsection when all of the following are true:
 
 ## Upcoming Work
 
-1. Complete core package modules (config.py, logging.py, exceptions.py).
-2. Create test infrastructure with working fixtures and smoke tests.
-3. Configure and validate the local CI workflow (uv sync, pytest, ruff, pyright, bandit).
+1. ✅ Complete core package modules (config.py, logging.py, exceptions.py).
+2. ✅ Create test infrastructure with working fixtures and smoke tests.
+3. ✅ Configure and validate the local CI workflow (uv sync, pytest, ruff, pyright, bandit).
 4. Create the CLI overlay skeleton.
 5. Create the API overlay skeleton.
 6. Create the worker overlay skeleton.
@@ -147,8 +147,8 @@ Retire this roadmap subsection when all of the following are true:
 2. ✅ The initial overlay set is agreed.
 3. ✅ The validation stack is agreed.
 4. ✅ Planning and handoff documents exist and are seeded.
-5. 🔄 The repository skeleton for implementation is ready.
-6. ⏳ All core modules have passing tests.
+5. ✅ The repository skeleton for implementation is ready.
+6. ✅ All core modules have passing tests.
 7. ⏳ All overlays skeleton and pass validation.
 8. ⏳ Documentation is complete and current.
 9. ⏳ First v1 release is tagged and documented.
