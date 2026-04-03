@@ -55,8 +55,10 @@ The core package is named `starter`. Replace it throughout with your project's p
      ```toml
      include = ["src/YOUR_PACKAGE_NAME", "tests"]
      ```
-   - `testpaths` and `addopts` under `[tool.pytest.ini_options]`:
+   - `[tool.pytest.ini_options]` (verify `testpaths` stays `["tests"]`; update `addopts`):
      ```toml
+     [tool.pytest.ini_options]
+     testpaths = ["tests"]
      addopts = "--cov=src/YOUR_PACKAGE_NAME --cov-report=term-missing --cov-fail-under=80"
      ```
 
@@ -107,6 +109,7 @@ uv run bandit -r src/
 ```
 
 If `uv run ruff format . --check` fails, run `uv run ruff format .` to apply formatting fixes, then rerun the validation commands.
+
 All checks must pass before you begin development.
 
 ---
