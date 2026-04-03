@@ -65,6 +65,8 @@ This is a foundation template meant to be extended and customized. See [docs/gui
 
 Releases use Semantic Versioning and are documented in [CHANGELOG.md](CHANGELOG.md).
 
+All updates to `main` should be submitted through pull requests.
+
 Use [docs/guide/release-checklist.md](docs/guide/release-checklist.md) for the full release flow:
 
 1. Prepare release PR (version bump + changelog update)
