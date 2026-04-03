@@ -26,3 +26,21 @@ class TestCliSmoke:
         payload = json.loads(captured.out)
         assert exit_code == 0
         assert payload["app_name"] == "starter"
+
+    def test_health_command_config_error_smoke(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+        capsys: pytest.CaptureFixture[str],
+    ) -> None:
+        """Test health command reports deterministic error on invalid config."""
+        monkeypatch.setenv("LOG_LEVEL", "INVALID")
+
+        exit_code = main(["health"])
+
+        captured = capsys.readouterr()
+        assert exit_code == 1
+        assert captured.out == ""
+        assert (
+            captured.err.strip()
+            == "Configuration error while running 'health': Failed to load settings."
+        )

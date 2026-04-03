@@ -63,3 +63,39 @@ class TestMain:
         assert payload["app_name"] == "starter"
         assert payload["debug"] is False
         assert payload["log_level"] == "INFO"
+
+    def test_main_health_config_error_returns_stable_stderr(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+        capsys: pytest.CaptureFixture[str],
+    ) -> None:
+        """Test health command config failures are stable and return non-zero."""
+        monkeypatch.setenv("LOG_LEVEL", "INVALID")
+
+        exit_code = main(["health"])
+
+        captured = capsys.readouterr()
+        assert exit_code == 1
+        assert captured.out == ""
+        assert (
+            captured.err.strip()
+            == "Configuration error while running 'health': Failed to load settings."
+        )
+
+    def test_main_config_show_config_error_returns_stable_stderr(
+        self,
+        monkeypatch: pytest.MonkeyPatch,
+        capsys: pytest.CaptureFixture[str],
+    ) -> None:
+        """Test config show failures are stable and return non-zero."""
+        monkeypatch.setenv("LOG_LEVEL", "INVALID")
+
+        exit_code = main(["config", "show"])
+
+        captured = capsys.readouterr()
+        assert exit_code == 1
+        assert captured.out == ""
+        assert (
+            captured.err.strip()
+            == "Configuration error while running 'config show': Failed to load settings."
+        )

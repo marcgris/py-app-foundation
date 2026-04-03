@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from collections.abc import Sequence
 
 from starter.config import load_settings
@@ -60,6 +61,23 @@ def _run_config_show_command() -> int:
     return 0
 
 
+def _handle_config_error(command_name: str, error: ConfigError) -> int:
+    """Print a deterministic config error message to stderr.
+
+    Args:
+        command_name: User-facing command identifier.
+        error: Underlying configuration exception.
+
+    Returns:
+        Non-zero exit code for command failure.
+    """
+    print(
+        f"Configuration error while running '{command_name}': {error.message}.",
+        file=sys.stderr,
+    )
+    return 1
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     """Run CLI command dispatch.
 
@@ -79,15 +97,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         try:
             return _run_health_command()
         except ConfigError as exc:
-            print(f"Configuration error: {exc}")
-            return 1
+            return _handle_config_error("health", exc)
 
     if parsed_args.command == "config" and parsed_args.config_command == "show":
         try:
             return _run_config_show_command()
         except ConfigError as exc:
-            print(f"Configuration error: {exc}")
-            return 1
+            return _handle_config_error("config show", exc)
 
     parser.print_help()
     return 1
