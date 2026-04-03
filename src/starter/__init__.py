@@ -1,6 +1,6 @@
 """Py App Foundation - A reusable foundation for professional Python applications."""
 
-__version__ = "0.1.0"
+__version__ = "0.3.0"
 __author__ = "Py App Foundation Contributors"
 
 from starter.config import Settings

@@ -6,6 +6,28 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-04-03
+
+### Added
+- CLI overlay baseline command surface:
+	- `starter health`
+	- `starter config show`
+	- `starter --version`
+- CLI command contract tests in unit and integration smoke suites.
+- Deterministic CLI configuration error handling (stable stderr + non-zero exit code).
+- New Copilot skills for overlay-aware development:
+	- `python-cli-overlay`
+	- `observability`
+- CLI Beta acceptance criteria checklist in guide documentation.
+
+### Changed
+- Bumped project version to `0.3.0`.
+- Updated overlay compatibility matrix to mark CLI as `Experimental` and introduced in `v0.3.0`.
+- Aligned existing Copilot testing and security skills for CLI overlay workflows.
+
+### Documentation
+- Added CLI usage examples and extension workflow guidance across README and contributor docs.
+
 ## [0.2.1] - 2026-04-03
 
 ### Added
