@@ -46,6 +46,9 @@ Repository = "https://github.com/marcgris/py-app-foundation"
 Documentation = "https://github.com/marcgris/py-app-foundation/tree/main/docs"
 Issues = "https://github.com/marcgris/py-app-foundation/issues"
 
+[project.scripts]
+starter = "starter.cli:run"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/starter"]
 
