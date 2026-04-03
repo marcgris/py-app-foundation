@@ -1,0 +1,45 @@
+{
+  // MCP (Model Context Protocol) server configuration for GitHub Copilot agents.
+  // These servers extend what Copilot agents can see and do while keeping the
+  // foundation framework-light and infrastructure-light.
+  //
+  // Setup: npm is required for npx-based servers.
+  // After editing this file, reload VS Code to pick up new server configurations.
+
+  "servers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    },
+
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${workspaceFolder}"
+      ]
+    },
+
+    "fetch": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ]
+    },
+
+    "git": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git",
+        "--repository",
+        "${workspaceFolder}"
+      ]
+    }
+  }
+}
