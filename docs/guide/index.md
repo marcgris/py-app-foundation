@@ -13,6 +13,7 @@ This repository is a template and reference implementation for bootstrapping pro
 
 ## Quick Links
 
+- **Starting a New Project**: See [new-project.md](new-project.md)
 - **For Contributors**: See [contributing.md](contributing.md)
 - **For Releases**: See [release-checklist.md](release-checklist.md)
 - **For Design Context**: See the [planning docs](../plan/ROADMAP.md)
