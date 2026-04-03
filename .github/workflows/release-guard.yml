@@ -1,0 +1,71 @@
+name: Release Guard
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  release-consistency:
+    name: Version and Changelog Consistency
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect version change
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+
+          old_version="$(git show "$BASE_SHA:pyproject.toml" | sed -n 's/^version = "\(.*\)"$/\1/p' | head -n 1)"
+          new_version="$(sed -n 's/^version = "\(.*\)"$/\1/p' pyproject.toml | head -n 1)"
+
+          if [[ -z "$old_version" || -z "$new_version" ]]; then
+            echo "Unable to determine version from pyproject.toml"
+            exit 1
+          fi
+
+          echo "old=$old_version" >> "$GITHUB_OUTPUT"
+          echo "new=$new_version" >> "$GITHUB_OUTPUT"
+
+          if [[ "$old_version" != "$new_version" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Version changed: $old_version -> $new_version"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Version unchanged: $new_version"
+          fi
+
+      - name: Validate changelog for release version
+        if: steps.version.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+          NEW_VERSION="${{ steps.version.outputs.new }}"
+
+          changed_files="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")"
+
+          if ! grep -qx "CHANGELOG.md" <<< "$changed_files"; then
+            echo "Version changed to $NEW_VERSION, but CHANGELOG.md was not updated."
+            exit 1
+          fi
+
+          if ! grep -Eq "^## \[$NEW_VERSION\] - [0-9]{4}-[0-9]{2}-[0-9]{2}$" CHANGELOG.md; then
+            echo "CHANGELOG.md must include a heading like: ## [$NEW_VERSION] - YYYY-MM-DD"
+            exit 1
+          fi
+
+          echo "Release guard checks passed for version $NEW_VERSION."
+
+      - name: No release changes detected
+        if: steps.version.outputs.changed != 'true'
+        run: echo "Version unchanged; release checks skipped."

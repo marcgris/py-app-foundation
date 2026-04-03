@@ -1,0 +1,88 @@
+name: Security
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  bandit:
+    name: Bandit Code Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+      
+      - name: Sync dependencies
+        run: uv sync
+      
+      - name: Run Bandit
+        run: uv run bandit -r src/ -f json -o bandit-report.json || true
+      
+      - name: Parse Bandit results
+        run: |
+          python3 << 'EOF'
+          import json
+          import sys
+          
+          with open('bandit-report.json') as f:
+              report = json.load(f)
+          
+          if report['results']:
+              print("Security issues found:")
+              for issue in report['results']:
+                  print(f"  - {issue['severity']}: {issue['test_name']} at {issue['filename']}:{issue['line_number']}")
+              if any(r['severity'] == 'HIGH' for r in report['results']):
+                  sys.exit(1)
+          else:
+              print("No security issues found!")
+          EOF
+
+  dependencies:
+    name: Dependency Scanning
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+      
+      - name: Sync dependencies
+        run: uv sync
+      
+      - name: Run pip-audit
+        run: uv run pip-audit --desc --strict
+
+  safety:
+    name: Safety Check
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install safety
+        run: pip install safety
+      
+      - name: Run safety check
+        run: safety check --json || true
