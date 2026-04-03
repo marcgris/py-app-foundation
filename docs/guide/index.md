@@ -94,7 +94,7 @@ Use this matrix to track base template and overlay maturity while keeping a sing
 | Overlay | Status | Introduced In | Last Breaking Change | Current Stable As Of | Notes |
 |---------|--------|---------------|----------------------|----------------------|-------|
 | Core/Base Template | Beta | v0.1.0 | N/A | v0.2.1 | Implemented and validated; overall project remains pre-v1 |
-| CLI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| CLI | Experimental | Unreleased | Unreleased | N/A | Implemented baseline commands: `starter health`, `starter config show`, and `starter --version` |
 | API | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | Worker | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | UI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
@@ -112,6 +112,19 @@ Status definitions:
 - Stable: production-ready with managed compatibility expectations
 
 Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is released, all planned overlays pass the full validation gate, and release documentation confirms no open v1 exit criteria.
+
+### CLI Beta Acceptance Criteria
+
+Move CLI from Experimental to Beta only when all checklist items are completed:
+
+- [ ] CLI command contract is documented and frozen for one release cycle.
+- [ ] Command names and semantics are stable for `starter health`, `starter config show`, and `starter --version`.
+- [ ] Exit codes are documented and covered by tests.
+- [ ] Deterministic config-error stderr format is documented and covered by tests.
+- [ ] `config show` JSON output shape is documented and covered by tests.
+- [ ] Unit and integration smoke tests for CLI commands are passing in CI.
+- [ ] Validation gates pass with no CLI-specific exceptions: ruff, pyright, pytest, and bandit.
+- [ ] Changelog and release notes include the CLI compatibility statement for the release where status changes to Beta.
 
 Recommended implementation order (current):
 
