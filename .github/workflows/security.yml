@@ -66,8 +66,11 @@ jobs:
       - name: Sync dependencies
         run: uv sync
       
+      - name: Export locked dependencies for audit
+        run: uv export --format requirements.txt --no-emit-project --no-dev --frozen --output-file requirements-audit.txt
+
       - name: Run pip-audit
-        run: uv run pip-audit --desc --strict --skip-editable
+        run: uv run pip-audit --desc --strict -r requirements-audit.txt
 
   safety:
     name: Safety Check
