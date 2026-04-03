@@ -62,6 +62,20 @@ uv run bandit -r src/            # Security scan
 
 For more detailed guidance, see [contributing.md](contributing.md).
 
+## Copilot Capabilities (Phase A)
+
+To support incremental adoption, the base template currently enables a focused quality set:
+
+1. Skills:
+	- dependency-management
+	- python-testing
+	- python-refactor
+	- security-audit
+2. Agent:
+	- code-reviewer
+
+Overlay-specific skills and agents are intentionally deferred until overlay implementation phases.
+
 ## Overlays
 
 This core is designed to be extended:

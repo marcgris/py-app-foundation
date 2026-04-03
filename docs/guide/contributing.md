@@ -58,6 +58,23 @@ When these patterns are fully embedded in contributor/release/overlay docs, the 
 
 Source of this adoption workflow: the Copilot capability reference documented in `docs/plan/ROADMAP.md` under "Copilot Capability Adoption Plan" and "Source Reference".
 
+### Enabled Copilot Capabilities (Phase A)
+
+The base template currently enables a quality-focused subset only:
+
+1. Skills:
+   - `.github/skills/dependency-management/`
+   - `.github/skills/python-testing/`
+   - `.github/skills/python-refactor/`
+   - `.github/skills/security-audit/`
+2. Agent:
+   - `.github/agents/code-reviewer.agent.md`
+
+Scope note:
+
+- These capabilities are intended for base-template quality workflows.
+- Overlay-specific skills (for API, worker, UI, etc.) remain deferred until overlay implementation phases.
+
 ### Allowed Operations
 
 - ✅ Read any file under `src/` and `tests/`
