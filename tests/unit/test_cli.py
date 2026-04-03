@@ -51,6 +51,15 @@ class TestMain:
 
         assert exit_code == 2
 
+    def test_main_version_returns_success(self, capsys: pytest.CaptureFixture[str]) -> None:
+        """Test that --version returns zero and emits version text."""
+        exit_code = main(["--version"])
+
+        captured = capsys.readouterr()
+        assert exit_code == 0
+        assert captured.err == ""
+        assert captured.out.startswith("starter ")
+
     def test_main_config_show_returns_settings_json(
         self, capsys: pytest.CaptureFixture[str]
     ) -> None:

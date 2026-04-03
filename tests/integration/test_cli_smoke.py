@@ -44,3 +44,12 @@ class TestCliSmoke:
             captured.err.strip()
             == "Configuration error while running 'health': Failed to load settings."
         )
+
+    def test_version_flag_smoke(self, capsys: pytest.CaptureFixture[str]) -> None:
+        """Test version flag can run end-to-end in process."""
+        exit_code = main(["--version"])
+
+        captured = capsys.readouterr()
+        assert exit_code == 0
+        assert captured.err == ""
+        assert captured.out.startswith("starter ")

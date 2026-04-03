@@ -6,10 +6,13 @@ import argparse
 import json
 import sys
 from collections.abc import Sequence
+from importlib import metadata
 
 from starter.config import load_settings
 from starter.exceptions import ConfigError
 from starter.logging import get_logger, log_context, setup_logging_from_settings
+
+PACKAGE_NAME = "py-app-foundation"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -22,6 +25,11 @@ def build_parser() -> argparse.ArgumentParser:
         prog="starter",
         description="Py App Foundation starter CLI.",
     )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"starter {_get_package_version()}",
+    )
     subparsers = parser.add_subparsers(dest="command")
     subparsers.required = True
 
@@ -33,6 +41,18 @@ def build_parser() -> argparse.ArgumentParser:
     config_subparsers.add_parser("show", help="Print resolved runtime configuration.")
 
     return parser
+
+
+def _get_package_version() -> str:
+    """Resolve the package version from installed distribution metadata.
+
+    Returns:
+        Installed package version or "unknown" when metadata is unavailable.
+    """
+    try:
+        return metadata.version(PACKAGE_NAME)
+    except metadata.PackageNotFoundError:
+        return "unknown"
 
 
 def _run_health_command() -> int:
