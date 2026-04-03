@@ -79,7 +79,7 @@ Use this matrix to track base template and overlay maturity while keeping a sing
 
 | Overlay | Status | Introduced In | Last Breaking Change | Current Stable As Of | Notes |
 |---------|--------|---------------|----------------------|----------------------|-------|
-| Core/Base Template | Beta | v0.1.0 | N/A | v0.2.0 | Implemented and validated; overall project remains pre-v1 |
+| Core/Base Template | Beta | v0.1.0 | N/A | v0.2.1 | Implemented and validated; overall project remains pre-v1 |
 | CLI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | API | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | Worker | Planned | N/A | N/A | N/A | Overlay not implemented yet |
