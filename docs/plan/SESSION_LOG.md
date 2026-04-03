@@ -4,6 +4,28 @@ Reverse chronological entries. One entry per meaningful work session.
 
 ---
 
+## Session: 2026-04-03 v0.2.0 Release
+
+**Session Goal**: Release v0.2.0 containing Python 3.14 upgrade and overlay portfolio expansion.
+
+**What Changed**
+- Bumped version from 0.1.1 to 0.2.0 in pyproject.toml
+- Updated CHANGELOG.md with 0.2.0 feature summary (Python 3.14, overlay portfolio, compatibility matrix)
+- Committed and tagged release on main branch
+
+**Decisions Made**
+- Use minor version bump (0.2.0) to reflect significant infrastructure baseline change (Python 3.14) and portfolio planning milestone
+- Mark Core/Base Template as Beta in compatibility matrix; advance to Stable at v1.0.0 pending overlay validation
+
+**Validation Results**
+- All quality gates passing: ruff, pyright, pytest (44/44, 97.10% coverage), bandit
+- CI workflows validated on Python 3.14
+
+**Recommended Next Step**
+- Begin CLI overlay implementation (Recommendation 2 from roadmap)
+
+---
+
 ## Session: 2026-04-03 Overlay Portfolio Expansion
 
 **Session Goal**: Document expanded overlay planning scope for near-term and future reference.
