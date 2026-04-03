@@ -106,6 +106,7 @@ uv run pytest tests/
 uv run bandit -r src/
 ```
 
+If `uv run ruff format . --check` fails, run `uv run ruff format .` to apply formatting fixes, then rerun the validation commands.
 All checks must pass before you begin development.
 
 ---
