@@ -144,6 +144,31 @@ tests/
 3. Update `src/starter/__init__.py` if exporting public APIs
 4. Document the pattern in a docstring and in this guide
 
+### Extending The CLI Overlay
+
+The CLI overlay lives in `src/starter/cli.py` and currently includes:
+
+1. `starter health`
+2. `starter config show`
+3. `starter --version`
+
+When adding CLI commands, follow this workflow:
+
+1. Register parser changes in `build_parser()`.
+2. Implement command logic in a dedicated helper function.
+3. Ensure configuration failures return deterministic stderr output and non-zero exit codes.
+4. Add unit tests in `tests/unit/test_cli.py`.
+5. Add or update smoke tests in `tests/integration/test_cli_smoke.py`.
+6. Run full validation before commit:
+   ```bash
+   uv sync
+   uv run ruff check .
+   uv run ruff format . --check
+   uv run pyright src/
+   uv run pytest tests/ -v
+   uv run bandit -r src/
+   ```
+
 ## CI/CD
 
 - **On every push**: Linting (ruff), type-checking (pyright), tests (pytest)

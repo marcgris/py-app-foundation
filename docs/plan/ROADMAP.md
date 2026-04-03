@@ -51,7 +51,7 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 ## Current Focus
 
 - **Active Phase**: Phase 4 (CLI overlay kickoff)
-- **Objective**: Implement the first overlay (CLI) as the proof-of-concept for the overlay model while preserving core validation guarantees.
+- **Objective**: Expand the CLI overlay baseline and documentation while preserving core validation guarantees.
 - **Current Owner**: Overlay implementation
 
 ## Copilot Capability Adoption Plan
@@ -100,13 +100,21 @@ Retire this roadmap subsection when all of the following are true:
 1. ✅ Complete core package modules (config.py, logging.py, exceptions.py).
 2. ✅ Create test infrastructure with working fixtures and smoke tests.
 3. ✅ Configure and validate the local CI workflow (uv sync, pytest, ruff, pyright, bandit).
-4. Create the CLI overlay skeleton.
+4. ✅ Create the CLI overlay skeleton.
 5. Create the API overlay skeleton.
 6. Create the worker overlay skeleton.
 7. Create the UI overlay skeleton.
 8. Verify all four overlays pass validation.
 9. Document the bootstrap and generation process.
 10. Prepare v1 release and maintenance guidelines.
+
+## CLI Overlay Milestones (Phase 4 Kickoff)
+
+1. ✅ Add `starter` command entrypoint and parser scaffold.
+2. ✅ Implement `starter health` command and smoke coverage.
+3. ✅ Implement `starter config show` command with JSON output.
+4. ✅ Add deterministic config-error handling (stderr + non-zero exit).
+5. ✅ Add `starter --version` support from package metadata.
 
 ## Future Overlay Backlog
 

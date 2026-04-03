@@ -36,6 +36,25 @@ src/starter/
 ├── exceptions.py   # Custom exception hierarchy for applications
 ```
 
+## CLI Overlay (Current)
+
+The first CLI overlay increment is available through the `starter` command.
+
+```bash
+uv run starter health
+# ok
+
+uv run starter config show
+# {"app_name": "starter", "debug": false, "log_level": "INFO"}
+
+uv run starter --version
+# starter 0.2.1
+```
+
+The `config show` command reads the same environment-driven settings as the core
+starter modules, and command failures from invalid configuration return a
+deterministic non-zero error response.
+
 ## Validation
 
 Every project built from this starter must pass:
