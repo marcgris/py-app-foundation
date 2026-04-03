@@ -20,8 +20,8 @@ Use **`uv`** for everything. It replaces `pip`, `pip-tools`, `virtualenv`,
 # Project setup
 uv init my-project          # create new project
 uv init --lib my-library    # create a library (with src layout)
-uv python install 3.12      # install a specific Python version
-uv python pin 3.12          # pin this project to Python 3.12 (.python-version)
+uv python install 3.14      # install a specific Python version
+uv python pin 3.14          # pin this project to Python 3.14 (.python-version)
 
 # Dependencies
 uv add fastapi              # add runtime dependency
@@ -52,7 +52,7 @@ name = "my-app"
 version = "0.1.0"
 description = "A FastAPI application"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 license = { text = "MIT" }
 authors = [{ name = "Your Name", email = "you@example.com" }]
 
@@ -92,7 +92,7 @@ dev-dependencies = [
 ]
 
 [tool.ruff]
-target-version = "py312"
+target-version = "py314"
 line-length = 88
 
 [tool.ruff.lint]
@@ -120,7 +120,7 @@ ignore = [
 "tests/**/*.py" = ["S101", "S106"]  # allow assert and hardcoded passwords in tests
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.14"
 strict = true
 plugins = ["pydantic.mypy"]
 exclude = ["alembic/"]
