@@ -54,6 +54,47 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 - **Objective**: Create the repository skeleton, planning documents, and core starter modules with passing validation.
 - **Current Owner**: Initial scaffolding
 
+## Copilot Capability Adoption Plan
+
+This plan introduces Copilot tools, agents, and skills in controlled phases. The intent is to adopt capabilities incrementally, validate impact, and then fold successful patterns into standard project documentation.
+
+### Source Reference
+
+Adoption guidance in this section is informed by the local reference project `python-copilot-skill-library`, specifically its Copilot operating assets:
+
+1. Project overview and workflow docs (`README.md`, `GETTING-STARTED.md`, `python-vscode-copilot-guide.md`)
+2. Project instruction baseline (`.github/copilot-instructions.md`)
+3. Skill catalog under `.github/skills/`
+4. Agent personas under `.github/agents/`
+5. Workspace enablement configuration under `.vscode/` (settings, extensions, MCP)
+
+### Phase A — Foundation (now)
+
+1. Define baseline Copilot usage rules in contributor and guide docs.
+2. Adopt quality-focused workflows first: planning prompts, code review prompts, testing prompts, and security review prompts.
+3. Add an AI-assisted pre-release quality gate that runs before tagging.
+
+### Phase B — Overlay-Aware Enablement
+
+1. Add overlay-specific guidance for CLI and UI work first.
+2. Define required prompt contracts for overlay changes (scope, constraints, tests, risks).
+3. Add acceptance checks for overlay-level documentation and test coverage.
+
+### Phase C — Advanced Workflows
+
+1. Add API and worker-focused skill workflows when those overlays are implemented.
+2. Introduce migration, observability, and deeper architecture-review workflows where applicable.
+3. Expand MCP-backed workflows only where they provide measurable quality gains.
+
+### Exit and Retirement Rule for This Plan
+
+Retire this roadmap subsection when all of the following are true:
+
+1. Copilot workflows are represented in standard contributor and release documentation.
+2. Overlay-specific guidance exists in the relevant overlay docs.
+3. Pre-release quality gates include the adopted AI-assisted checks.
+4. The team is using the embedded workflows consistently without referencing this temporary plan.
+
 ## Upcoming Work
 
 1. Complete core package modules (config.py, logging.py, exceptions.py).

@@ -9,6 +9,7 @@ This document explains how humans and agents should work in this repository.
 3. **Tests Come First**: Every public API must have test coverage
 4. **Validation Always Passes**: No exception—PRs must pass all local checks before review
 5. **Small Changes**: Keep logical changes small and focused
+6. **Incremental Copilot Adoption**: Introduce Copilot capabilities in phases and only standardize what proves valuable
 
 ## For Humans: How to Contribute
 
@@ -42,6 +43,20 @@ This document explains how humans and agents should work in this repository.
 - **Imports**: Keep them organized; let ruff sort them automatically
 
 ## For Agents: How to Work in This Repository
+
+### Copilot Adoption Workflow (Incremental)
+
+Use this sequence when applying Copilot capabilities to new work:
+
+1. **Plan First**: Capture scope, constraints, risks, and test strategy before coding.
+2. **Implement Minimally**: Prefer smallest safe change with clear tests.
+3. **Run Quality Gates**: Ruff, format, pyright, pytest, and bandit must pass.
+4. **Run AI-Assisted Review**: Perform architecture/test/security review prompts before release or merge.
+5. **Promote Proven Patterns**: Move successful workflows from plan docs into standard project docs.
+
+When these patterns are fully embedded in contributor/release/overlay docs, the temporary adoption plan in roadmap documents can be retired.
+
+Source of this adoption workflow: the Copilot capability reference documented in `docs/plan/ROADMAP.md` under "Copilot Capability Adoption Plan" and "Source Reference".
 
 ### Allowed Operations
 
@@ -105,9 +120,10 @@ The release cadence follows this pattern:
 
 1. Open a release prep PR with version bump and changelog updates
 2. Verify local validation and green CI
-3. Merge to `main`
-4. Create annotated tag `vX.Y.Z`
-5. Publish GitHub release notes from changelog entries
+3. Run AI-assisted review checks for architecture, testing, and security
+4. Merge to `main`
+5. Create annotated tag `vX.Y.Z`
+6. Publish GitHub release notes from changelog entries
 
 ## Questions?
 

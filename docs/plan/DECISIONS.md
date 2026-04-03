@@ -4,6 +4,24 @@ Lightweight ADR-style log. Newest first.
 
 ---
 
+## Decision D-009
+
+**Date**: 2026-04-03  
+**Status**: Accepted  
+**Decision**: Adopt Copilot tools, agents, and skills incrementally (foundation -> overlay-aware -> advanced), and retire the temporary adoption plan once successful practices are embedded in standard project documentation.
+
+**Context**: The project should improve software quality through Copilot capabilities without overfitting to one framework or introducing unnecessary process overhead.
+
+**Alternatives Considered**:
+- Adopt all capabilities immediately
+- Avoid formal adoption and rely on ad-hoc usage
+
+**Consequences**: The team gets measurable quality improvements with lower rollout risk, while keeping the core framework-light and maintainable.
+
+**Follow-up**: Keep the roadmap adoption phases current and migrate stable practices into contributor, release, and overlay documentation.
+
+---
+
 ## Decision D-008
 
 **Date**: 2026-04-03  
