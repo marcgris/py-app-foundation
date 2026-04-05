@@ -26,6 +26,7 @@ A reusable, professional, secure foundation for building Python applications wit
 - **Roadmap**: See [docs/plan/ROADMAP.md](docs/plan/ROADMAP.md)
 - **Decisions**: See [docs/plan/DECISIONS.md](docs/plan/DECISIONS.md)
 - **Changelog**: See [CHANGELOG.md](CHANGELOG.md)
+- **Template Version Selection (Core vs Overlays)**: See the Overlay Compatibility Matrix in [docs/guide/index.md](docs/guide/index.md)
 
 ## Core Modules
 
