@@ -127,6 +127,31 @@ Scope note:
 - This cookbook currently targets the adopted Checkpoint 1 skills only.
 - Revisit and expand this section at UI Skill-Library Checkpoint 2 before Desktop profile implementation.
 
+### API Overlay Prompt Cookbook (Checkpoint 1)
+
+Use these prompts when working on API overlay contract and implementation changes.
+
+1. python-testing
+   - "Use python-testing: add or improve API smoke tests for startup and `/health` contract responses, including negative-path assertions."
+   - "Use python-testing: review tests/unit/test_api.py and tests/integration/test_api_smoke.py for missing regression scenarios before merge."
+2. security-audit
+   - "Use security-audit: perform a focused review of API overlay files for unsafe defaults, unvalidated inputs, and accidental secret exposure."
+   - "Use security-audit: review API docs and sample commands for guidance that could introduce insecure deployment or runtime behavior."
+3. github-actions
+   - "Use github-actions: propose the smallest CI update that enforces API contract smoke checks in pull request validation."
+   - "Use github-actions: review current workflow ordering and recommend one minimal change to reduce risk of missed API regressions."
+4. python-api-endpoint
+   - "Use python-api-endpoint: add a new API endpoint vertical slice including request/response models, route wiring, and test stubs."
+   - "Use python-api-endpoint: review endpoint implementation for thin-route patterns and service-bound business logic."
+5. pydantic-models
+   - "Use pydantic-models: design or refine request/response schemas using Pydantic v2 patterns and explicit validation constraints."
+   - "Use pydantic-models: review API model boundaries for serialization clarity, field constraints, and version-safe evolution."
+
+Scope note:
+
+- This cookbook targets API Checkpoint 1 adopted skills.
+- Re-evaluate and extend before API Beta promotion (API Checkpoint 2).
+
 ### Allowed Operations
 
 - ✅ Read any file under `src/` and `tests/`
