@@ -6,6 +6,8 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-04-05
+
 ### Added
 - UI overlay Shared Base skeleton and Web profile skeleton under `src/starter/ui/`.
 - UI Desktop profile skeleton under `src/starter/ui/desktop/`.

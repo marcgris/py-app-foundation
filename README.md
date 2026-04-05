@@ -49,7 +49,7 @@ uv run starter config show
 # {"app_name": "starter", "debug": false, "log_level": "INFO"}
 
 uv run starter --version
-# starter 0.4.0
+# starter 0.5.0
 ```
 
 The `config show` command reads the same environment-driven settings as the core
