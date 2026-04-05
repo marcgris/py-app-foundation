@@ -123,6 +123,15 @@ Retire this roadmap subsection when all of the following are true:
 3. MCP server profile.
 4. Library/package-only profile.
 
+## Deferred Compatibility Work
+
+1. Add a version-resolution model that maps required overlay combinations to compatible release tags.
+2. Keep this deferred until at least three non-core overlays are implemented so compatibility rules are based on real release history rather than speculation.
+3. Implementation target:
+	- single machine-readable compatibility source of truth
+	- generated human-readable matrix/view
+	- deterministic query workflow for architects (for example: required overlays + minimum maturity -> recommended tag)
+
 ## Recommended Overlay Implementation Order
 
 1. CLI overlay (first proof-of-concept for overlay model)
