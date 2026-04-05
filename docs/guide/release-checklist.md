@@ -36,6 +36,10 @@ uv run bandit -r src/
    - Architecture/code-quality review
    - Test coverage and edge-case review
    - Security review
+10. Run the recommendation register review gate:
+   - Review `docs/plan/ROADMAP.md` recommendation register entries tied to the release scope.
+   - Mark each relevant recommendation as addressed or explicitly deferred with rationale.
+   - Include recommendation IDs in the release PR description.
 
 Use prompts like:
 
@@ -80,6 +84,7 @@ Promotion checklist:
 4. Complete Checkpoint 3 and record outcome in roadmap.
 5. Add Beta promotion notes to `CHANGELOG.md` including what is frozen for one release cycle.
 6. Verify no open High/Critical review findings for UI contract behavior.
+7. Review recommendation register entries for UI scope and capture addressed/deferred IDs in the promotion PR.
 
 Definition of done for UI Beta promotion:
 
@@ -111,6 +116,7 @@ Promotion checklist:
 3. Run full validation gates (ruff, format-check, pyright, pytest, bandit).
 4. Complete API Skill-Library Checkpoint 2 and record outcome in roadmap.
 5. Verify no open High/Critical review findings for API contract behavior.
+6. Review recommendation register entries for API scope and capture addressed/deferred IDs in the promotion PR.
 
 ## Worker Beta Readiness Checklist
 
@@ -130,6 +136,7 @@ Promotion checklist:
 2. Run Worker Skill-Library Checkpoint 1 and record outcomes.
 3. Complete full validation gates and CI checks.
 4. Run Worker Skill-Library Checkpoint 2 before Beta promotion.
+5. Review recommendation register entries for worker scope and capture addressed/deferred IDs in the promotion PR.
 
 ## Tagging And Publishing
 

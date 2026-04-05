@@ -58,9 +58,9 @@ When these patterns are fully embedded in contributor/release/overlay docs, the 
 
 Source of this adoption workflow: the Copilot capability reference documented in `docs/plan/ROADMAP.md` under "Copilot Capability Adoption Plan" and "Source Reference".
 
-### Enabled Copilot Capabilities (Phase A)
+### Enabled Copilot Capabilities (Current Baseline)
 
-The base template currently enables a quality-focused subset only:
+The template now includes quality baseline capabilities plus API/worker-aligned additions.
 
 1. Skills:
    - `.github/skills/dependency-management/`
@@ -69,13 +69,20 @@ The base template currently enables a quality-focused subset only:
    - `.github/skills/python-refactor/`
    - `.github/skills/security-audit/`
    - `.github/skills/observability/`
-2. Agent:
+   - `.github/skills/github-actions/`
+   - `.github/skills/python-api-endpoint/`
+   - `.github/skills/pydantic-models/`
+   - `.github/skills/docstring-generation/`
+2. Agents:
    - `.github/agents/code-reviewer.agent.md`
+   - `.github/agents/test-writer.agent.md`
+   - `.github/agents/security-auditor.agent.md`
+   - `.github/agents/docs-writer.agent.md`
 
 Scope note:
 
-- These capabilities are intended for base-template quality workflows.
-- Overlay-specific skills (for API, worker, UI, etc.) remain deferred until overlay implementation phases.
+- `db-migrations` and `db-architect` remain intentionally deferred until persistence-backed API work begins.
+- Deeper observability stack patterns (metrics/tracing rollout) remain checkpoint-gated for Beta promotion phases.
 
 ### Copilot Invocation Cookbook (Phase A)
 
@@ -197,6 +204,22 @@ Scope note:
 4. **Validate Locally**: Ensure all checks pass before opening a PR
 5. **Self-Review**: Comment on your own PR explaining intent and decisions
 6. **Await Human Review**: Do not merge; let humans approve and merge
+
+### PR Recommendation Traceability
+
+When opening a PR that touches overlays, checkpoints, or release governance, include a short traceability block in the PR description.
+
+1. `Checkpoint`: which checkpoint this PR advances (for example, `API Checkpoint 2`).
+2. `Recommendation IDs addressed`: list IDs from the roadmap recommendation register.
+3. `Recommendation IDs deferred`: list IDs deferred with one-line rationale and next trigger.
+
+Example:
+
+```text
+Checkpoint: API Checkpoint 2
+Recommendation IDs addressed: REC-002, REC-004
+Recommendation IDs deferred: REC-003 (deferred until first persistence-backed endpoint lands)
+```
 
 ## Repository Structure
 
