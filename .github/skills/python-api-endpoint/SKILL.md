@@ -27,6 +27,8 @@ nothing is left unwired.
 ### Step 1 — Define the Pydantic Models (`src/models/<resource>.py`)
 
 See `templates/all-templates.md` (models section) for the canonical pattern.
+Templates are intentionally consolidated in this single file; there are no
+separate `templates/models-template.py` or sibling files.
 
 - Create a `<Resource>Base` with shared fields
 - Create a `<Resource>Create` (input, no `id`)
