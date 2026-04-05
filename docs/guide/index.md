@@ -131,14 +131,24 @@ For the release history of this status change, see [../../CHANGELOG.md](../../CH
 
 Recommended implementation order (current):
 
-1. CLI
-2. UI
-3. API
-4. Worker
-5. MCP Server (backlog)
-6. Scheduled Jobs/Cron (backlog)
-7. Data/ETL Pipeline (backlog)
-8. Library/Package-Only (backlog)
+Effort baseline: CLI overlay implementation is treated as 100%.
+
+1. CLI (100%)
+	Context: First proof-of-concept for the overlay model and command contract baseline. Completed in v0.4.0 Beta.
+2. UI (120%)
+	Context: High anticipated demand; adds frontend structure, build workflow, and local integration boundary. Slightly higher effort than CLI due to tooling and UX validation.
+3. API (160%)
+	Context: Highest effort among planned overlays because framework and service-boundary decisions are still open; includes route contracts, request/response validation, and integration testing patterns.
+4. Worker (130%)
+	Context: Adds background execution patterns, scheduler or queue boundaries, retry/error semantics, and worker-focused observability.
+5. MCP Server (backlog, 175%)
+	Context: Tooling and protocol boundary work is broader than a single app shape; expected to require command/tool contract design, integration testing strategy, and additional operational guidance.
+6. Scheduled Jobs/Cron (backlog, 115%)
+	Context: Moderately above CLI; adds scheduling semantics, idempotency expectations, failure handling, and runtime execution policies.
+7. Data/ETL Pipeline (backlog, 185%)
+	Context: High complexity profile with data-flow boundaries, transform reliability, schema evolution concerns, and stronger validation/performance expectations.
+8. Library/Package-Only (backlog, 70%)
+	Context: Lower relative implementation effort because runtime entrypoints are minimal, but still requires packaging, API surface, and compatibility discipline.
 
 ## Design Philosophy
 
