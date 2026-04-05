@@ -26,7 +26,7 @@ nothing is left unwired.
 
 ### Step 1 — Define the Pydantic Models (`src/models/<resource>.py`)
 
-See `templates/models-template.py` for the canonical pattern.
+See `templates/all-templates.md` (models section) for the canonical pattern.
 
 - Create a `<Resource>Base` with shared fields
 - Create a `<Resource>Create` (input, no `id`)
@@ -36,7 +36,7 @@ See `templates/models-template.py` for the canonical pattern.
 
 ### Step 2 — Define the Repository Interface (`src/repositories/<resource>.py`)
 
-See `templates/repository-template.py` for the canonical pattern.
+See `templates/all-templates.md` (repository section) for the canonical pattern.
 
 - Define an `Abstract<Resource>Repository(ABC)` with typed method signatures
 - Implement `SQLAlchemy<Resource>Repository` that inherits the abstract class
@@ -45,7 +45,7 @@ See `templates/repository-template.py` for the canonical pattern.
 
 ### Step 3 — Implement the Service (`src/services/<resource>_service.py`)
 
-See `templates/service-template.py` for the canonical pattern.
+See `templates/all-templates.md` (service section) for the canonical pattern.
 
 - Constructor receives the abstract repository (not the concrete one)
 - Raise `<Resource>NotFoundError` (a domain exception) when entity is missing
@@ -53,7 +53,7 @@ See `templates/service-template.py` for the canonical pattern.
 
 ### Step 4 — Create the Router (`src/api/routes/<resource>.py`)
 
-See `templates/router-template.py` for the canonical pattern.
+See `templates/all-templates.md` (router section) for the canonical pattern.
 
 - Use `APIRouter(prefix="/<resources>", tags=["<Resources>"])`
 - Each route returns the correct Pydantic response model
@@ -69,7 +69,7 @@ app.include_router(users_router)
 
 ### Step 6 — Write the Integration Test (`tests/integration/test_<resource>_routes.py`)
 
-See `templates/test-template.py` for the canonical pattern.
+See `templates/all-templates.md` (test section) for the canonical pattern.
 
 - Use `httpx.AsyncClient` with `ASGITransport`
 - Override the repository dependency with an in-memory implementation
