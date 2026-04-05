@@ -1,6 +1,7 @@
 """Tests for the logging module."""
 
 import logging
+from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 from starter.logging import (
@@ -38,9 +39,7 @@ class TestSetupLogging:
 
         # Check that file handler was added
         handlers = root_logger.handlers
-        has_file_handler = any(
-            isinstance(h, logging.handlers.RotatingFileHandler) for h in handlers
-        )
+        has_file_handler = any(isinstance(h, RotatingFileHandler) for h in handlers)
         assert has_file_handler
 
     def test_setup_logging_custom_format(self) -> None:

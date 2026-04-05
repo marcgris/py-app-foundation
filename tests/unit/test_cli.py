@@ -27,6 +27,22 @@ class TestBuildParser:
         assert parsed.command == "config"
         assert parsed.config_command == "show"
 
+    def test_build_parser_command_tree_matches_contract(self) -> None:
+        """Test command contract via parser behavior only."""
+        parser = build_parser()
+
+        with pytest.raises(SystemExit) as invalid_command:
+            parser.parse_args(["not-a-command"])
+        assert invalid_command.value.code == 2
+
+        with pytest.raises(SystemExit) as missing_subcommand:
+            parser.parse_args(["config"])
+        assert missing_subcommand.value.code == 2
+
+        with pytest.raises(SystemExit) as invalid_subcommand:
+            parser.parse_args(["config", "not-a-subcommand"])
+        assert invalid_subcommand.value.code == 2
+
 
 class TestMain:
     """Test suite for CLI command dispatch."""
@@ -48,6 +64,12 @@ class TestMain:
     def test_main_with_invalid_command_returns_usage_error(self) -> None:
         """Test that invalid command returns argparse usage code."""
         exit_code = main(["not-a-command"])
+
+        assert exit_code == 2
+
+    def test_main_config_without_subcommand_returns_usage_error(self) -> None:
+        """Test that missing config subcommand returns argparse usage code."""
+        exit_code = main(["config"])
 
         assert exit_code == 2
 

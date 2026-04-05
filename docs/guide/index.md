@@ -16,6 +16,7 @@ This repository is a template and reference implementation for bootstrapping pro
 - **Starting a New Project**: See [new-project.md](new-project.md)
 - **For Contributors**: See [contributing.md](contributing.md)
 - **For Releases**: See [release-checklist.md](release-checklist.md)
+- **CLI Command Contract**: See [cli-command-contract.md](cli-command-contract.md)
 - **For Design Context**: See the [planning docs](../plan/ROADMAP.md)
 - **Architecture Details**: See [ARCHITECTURE.md](../plan/ARCHITECTURE.md)
 - **Change History**: See [../../CHANGELOG.md](../../CHANGELOG.md)
@@ -87,55 +88,67 @@ This core is designed to be extended:
 
 Each overlay adds minimal framework-specific code while inheriting the core's validation and guardrails.
 
-### Overlay Compatibility Matrix
+### Template And Overlay Compatibility Matrix
 
-Use this matrix to track base template and overlay maturity while keeping a single repository version stream.
+This table is meant to answer two questions quickly:
 
-| Overlay | Status | Introduced In | Last Breaking Change | Current Stable As Of | Notes |
-|---------|--------|---------------|----------------------|----------------------|-------|
-| Core/Base Template | Beta | v0.1.0 | N/A | v0.3.0 | Implemented and validated; overall project remains pre-v1 |
-| CLI | Experimental | v0.3.0 | v0.3.0 | N/A | Implemented baseline commands: `starter health`, `starter config show`, and `starter --version` |
-| API | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| Worker | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| UI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| Scheduled Jobs/Cron | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| Data/ETL Pipeline | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| MCP Server | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| Library/Package-Only | Backlog | N/A | N/A | N/A | Candidate for later demand |
+1. What is included by default in a core-only project?
+2. Which release tag should I start from for a given capability?
 
-Status definitions:
+| Component | Type | Included In Core-Only Project | Current Status | First Available | Status Since | Recommended Starting Tag | Notes |
+|-----------|------|-------------------------------|----------------|-----------------|--------------|--------------------------|-------|
+| Core/Base Template | Base foundation | Yes | Beta | v0.1.0 | v0.1.0 | Latest release tag (currently `v0.4.0`) | Foundation modules and validation stack used by all project types |
+| CLI | Overlay | No | Beta | v0.3.0 | v0.4.0 | `v0.4.0` or newer | Commands: `starter health`, `starter config show`, `starter --version`; compatibility contract documented |
+| API | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| Worker | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| UI | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| Scheduled Jobs/Cron | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Data/ETL Pipeline | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| MCP Server | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Library/Package-Only | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 
-- Planned: designed but not implemented
-- Backlog: candidate overlay tracked for future planning
-- Experimental: implemented, may change quickly
-- Beta: feature-complete for trial usage
-- Stable: production-ready with managed compatibility expectations
+Status legend used in the table:
+
+- Planned: designed but not implemented.
+- Backlog: candidate tracked for future planning.
+- Experimental: implemented, may change quickly.
+- Beta: feature-complete for trial usage.
+- Stable: production-ready with managed compatibility expectations.
+
+Core-only quick rule:
+
+- Use `v0.2.1` if you want a snapshot with no implemented overlays present in the template.
+- Use latest release tag if you want current core improvements and are okay with CLI overlay code being present.
 
 Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is released, all planned overlays pass the full validation gate, and release documentation confirms no open v1 exit criteria.
 
-### CLI Beta Acceptance Criteria
+### CLI Status
 
-Move CLI from Experimental to Beta only when all checklist items are completed:
+CLI reached Beta in `v0.4.0`.
 
-- [ ] CLI command contract is documented and frozen for one release cycle.
-- [x] Command names and semantics are stable for `starter health`, `starter config show`, and `starter --version`.
-- [ ] Exit codes are documented and covered by tests.
-- [ ] Deterministic config-error stderr format is documented and covered by tests.
-- [x] `config show` JSON output shape is documented and covered by tests.
-- [x] Unit and integration smoke tests for CLI commands are passing in CI.
-- [x] Validation gates pass with no CLI-specific exceptions: ruff, pyright, pytest, and bandit.
-- [ ] Changelog and release notes include the CLI compatibility statement for the release where status changes to Beta.
+For current compatibility guarantees and command contract details, see [cli-command-contract.md](cli-command-contract.md).
+For the release history of this status change, see [../../CHANGELOG.md](../../CHANGELOG.md).
 
 Recommended implementation order (current):
 
-1. CLI
-2. UI
-3. API
-4. Worker
-5. MCP Server (backlog)
-6. Scheduled Jobs/Cron (backlog)
-7. Data/ETL Pipeline (backlog)
-8. Library/Package-Only (backlog)
+Effort baseline: CLI overlay implementation is treated as 100%.
+
+1. CLI (100%)
+	Context: First proof-of-concept for the overlay model and command contract baseline. Completed in v0.4.0 Beta.
+2. UI (120%)
+	Context: High anticipated demand; adds frontend structure, build workflow, and local integration boundary. Slightly higher effort than CLI due to tooling and UX validation.
+3. API (160%)
+	Context: Highest effort among planned overlays because framework and service-boundary decisions are still open; includes route contracts, request/response validation, and integration testing patterns.
+4. Worker (130%)
+	Context: Adds background execution patterns, scheduler or queue boundaries, retry/error semantics, and worker-focused observability.
+5. MCP Server (backlog, 175%)
+	Context: Tooling and protocol boundary work is broader than a single app shape; expected to require command/tool contract design, integration testing strategy, and additional operational guidance.
+6. Scheduled Jobs/Cron (backlog, 115%)
+	Context: Moderately above CLI; adds scheduling semantics, idempotency expectations, failure handling, and runtime execution policies.
+7. Data/ETL Pipeline (backlog, 185%)
+	Context: High complexity profile with data-flow boundaries, transform reliability, schema evolution concerns, and stronger validation/performance expectations.
+8. Library/Package-Only (backlog, 70%)
+	Context: Lower relative implementation effort because runtime entrypoints are minimal, but still requires packaging, API surface, and compatibility discipline.
 
 ## Design Philosophy
 

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "py-app-foundation"
-version = "0.3.0"
+version = "0.4.0"
 description = "A reusable, professional Python app foundation for building secure, well-designed applications"
 readme = "README.md"
 license = { text = "Apache-2.0" }

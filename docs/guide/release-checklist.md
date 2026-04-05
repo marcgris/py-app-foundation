@@ -31,7 +31,8 @@ uv run bandit -r src/
 5. Confirm CI is green on the release PR.
 6. Verify docs are current for any user-facing changes.
 7. Update the overlay compatibility matrix in `docs/guide/index.md` (status, introduced version, and stable-as-of fields).
-8. Run AI-assisted review checks and resolve material findings:
+8. If CLI status changes to Beta in this release, include a CLI compatibility statement in changelog/release notes covering command surface, exit codes, and deterministic config-error stderr format.
+9. Run AI-assisted review checks and resolve material findings:
    - Architecture/code-quality review
    - Test coverage and edge-case review
    - Security review

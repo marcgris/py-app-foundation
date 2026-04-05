@@ -53,3 +53,15 @@ class TestCliSmoke:
         assert exit_code == 0
         assert captured.err == ""
         assert captured.out.startswith("starter ")
+
+    def test_missing_command_returns_usage_error_smoke(self) -> None:
+        """Test missing command returns argparse usage exit code."""
+        exit_code = main([])
+
+        assert exit_code == 2
+
+    def test_missing_config_subcommand_returns_usage_error_smoke(self) -> None:
+        """Test missing config subcommand returns argparse usage exit code."""
+        exit_code = main(["config"])
+
+        assert exit_code == 2

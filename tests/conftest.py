@@ -1,9 +1,8 @@
 """Shared test fixtures and utilities."""
 
 import tempfile
-from collections.abc import Generator
+from collections.abc import Iterator
 from pathlib import Path
-from typing import Any
 
 import pytest
 
@@ -12,7 +11,7 @@ from starter.logging import get_logger
 
 
 @pytest.fixture
-def temp_env_file() -> Generator[Path]:
+def temp_env_file() -> Iterator[Path]:
     """Provide a temporary .env file for testing.
 
     Yields:
@@ -71,7 +70,7 @@ def monkeypatch_env(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
 
 
 @pytest.fixture
-def isolation(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> dict[str, Any]:
+def isolation(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Iterator[dict[str, Path]]:
     """Provide test isolation: temporary directory and env cleanup.
 
     Args:

@@ -27,6 +27,10 @@
   "github.copilot.chat.codeGeneration.useInstructionFiles": true,
   "github.copilot.chat.reviewSelection.enabled": true,
 
+  // Git performance
+  "git.autofetch": false,
+  "git.autoRepositoryDetection": "openEditors",
+
   // Editor UX
   "editor.inlayHints.enabled": "onUnlessPressed",
   "editor.bracketPairColorization.enabled": true,
