@@ -20,6 +20,7 @@ A reusable, professional, secure foundation for building Python applications wit
 ## Documentation
 
 - **Getting Started**: See [docs/guide/index.md](docs/guide/index.md)
+- **Bootstrap and Generation Playbook**: See [docs/guide/bootstrap-generation-playbook.md](docs/guide/bootstrap-generation-playbook.md)
 - **Contributing**: See [docs/guide/contributing.md](docs/guide/contributing.md)
 - **Release Checklist**: See [docs/guide/release-checklist.md](docs/guide/release-checklist.md)
 - **Architecture**: See [docs/plan/ARCHITECTURE.md](docs/plan/ARCHITECTURE.md)

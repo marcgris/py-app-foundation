@@ -176,7 +176,7 @@ Checkpoint 1 outcome summary:
 8. ✅ Create the API overlay skeleton.
 9. ✅ Create the worker overlay skeleton.
 10. ✅ Verify all planned overlays and UI profiles pass validation.
-11. Document the bootstrap and generation process.
+11. ✅ Document the bootstrap and generation process.
 12. Prepare v1 release and maintenance guidelines.
 
 ## CLI Overlay Milestones (Phase 4 Kickoff)
