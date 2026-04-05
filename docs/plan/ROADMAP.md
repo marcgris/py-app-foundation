@@ -50,9 +50,9 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 
 ## Current Focus
 
-- **Active Phase**: Phase 4 (CLI overlay kickoff)
-- **Objective**: Expand the CLI overlay baseline and documentation while preserving core validation guarantees.
-- **Current Owner**: Overlay implementation
+- **Active Phase**: Phase 5 (Release readiness)
+- **Objective**: Finalize v1 release documentation, maintenance standards, and release governance.
+- **Current Owner**: Release preparation
 
 ## Copilot Capability Adoption Plan
 
@@ -189,7 +189,7 @@ Checkpoint 1 outcome summary:
 9. ✅ Create the worker overlay skeleton.
 10. ✅ Verify all planned overlays and UI profiles pass validation.
 11. ✅ Document the bootstrap and generation process.
-12. Prepare v1 release and maintenance guidelines.
+12. ✅ Prepare v1 release and maintenance guidelines.
 
 ## CLI Overlay Milestones (Phase 4 Kickoff)
 
@@ -250,5 +250,5 @@ Checkpoint 1 outcome summary:
 5. ✅ The repository skeleton for implementation is ready.
 6. ✅ All core modules have passing tests.
 7. ✅ All overlays skeleton and pass validation.
-8. ⏳ Documentation is complete and current.
-9. ⏳ First v1 release is tagged and documented.
+8. ✅ Documentation is complete and current.
+9. ✅ First v1 release is tagged and documented.

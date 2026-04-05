@@ -17,6 +17,7 @@ This repository is a template and reference implementation for bootstrapping pro
 - **Bootstrap and Generation Playbook**: See [bootstrap-generation-playbook.md](bootstrap-generation-playbook.md)
 - **For Contributors**: See [contributing.md](contributing.md)
 - **For Releases**: See [release-checklist.md](release-checklist.md)
+- **For Maintenance**: See [maintenance-guidelines.md](maintenance-guidelines.md)
 - **CLI Command Contract**: See [cli-command-contract.md](cli-command-contract.md)
 - **UI Overlay Contract**: See [ui-overlay-contract.md](ui-overlay-contract.md)
 - **For Design Context**: See the [planning docs](../plan/ROADMAP.md)
@@ -99,14 +100,14 @@ This table is meant to answer two questions quickly:
 
 | Component | Type | Included In Core-Only Project | Current Status | First Available | Status Since | Recommended Starting Tag | Notes |
 |-----------|------|-------------------------------|----------------|-----------------|--------------|--------------------------|-------|
-| Core/Base Template | Base foundation | Yes | Beta | v0.1.0 | v0.1.0 | Latest release tag (currently `v0.5.0`) | Foundation modules and validation stack used by all project types |
-| CLI | Overlay | No | Beta | v0.3.0 | v0.4.0 | `v0.5.0` or newer | Commands: `starter health`, `starter config show`, `starter --version`; compatibility contract documented |
-| UI Shared Base | Overlay foundation | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Shared cross-platform UI contract; see `ui-overlay-contract.md` |
-| UI Web Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Web-specific profile under UI overlay family |
-| UI Desktop Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Desktop-specific profile under UI overlay family |
-| UI Mobile Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Mobile-specific profile under UI overlay family |
-| API | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Framework-light API profile skeleton with deterministic health contract |
-| Worker | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Framework-light worker profile skeleton with deterministic job-result contract |
+| Core/Base Template | Base foundation | Yes | Stable | v0.1.0 | v1.0.0 | Latest release tag (currently `v1.0.0`) | Foundation modules and validation stack used by all project types |
+| CLI | Overlay | No | Beta | v0.3.0 | v0.4.0 | `v1.0.0` or newer | Commands: `starter health`, `starter config show`, `starter --version`; compatibility contract documented |
+| UI Shared Base | Overlay foundation | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Shared cross-platform UI contract; see `ui-overlay-contract.md` |
+| UI Web Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Web-specific profile under UI overlay family |
+| UI Desktop Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Desktop-specific profile under UI overlay family |
+| UI Mobile Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Mobile-specific profile under UI overlay family |
+| API | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Framework-light API profile skeleton with deterministic health contract |
+| Worker | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Framework-light worker profile skeleton with deterministic job-result contract |
 | Scheduled Jobs/Cron | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 | Data/ETL Pipeline | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 | MCP Server | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |

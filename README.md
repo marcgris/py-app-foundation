@@ -23,6 +23,7 @@ A reusable, professional, secure foundation for building Python applications wit
 - **Bootstrap and Generation Playbook**: See [docs/guide/bootstrap-generation-playbook.md](docs/guide/bootstrap-generation-playbook.md)
 - **Contributing**: See [docs/guide/contributing.md](docs/guide/contributing.md)
 - **Release Checklist**: See [docs/guide/release-checklist.md](docs/guide/release-checklist.md)
+- **Maintenance Guidelines**: See [docs/guide/maintenance-guidelines.md](docs/guide/maintenance-guidelines.md)
 - **Architecture**: See [docs/plan/ARCHITECTURE.md](docs/plan/ARCHITECTURE.md)
 - **Roadmap**: See [docs/plan/ROADMAP.md](docs/plan/ROADMAP.md)
 - **Decisions**: See [docs/plan/DECISIONS.md](docs/plan/DECISIONS.md)
@@ -50,7 +51,7 @@ uv run starter config show
 # {"app_name": "starter", "debug": false, "log_level": "INFO"}
 
 uv run starter --version
-# starter 0.5.0
+# starter 1.0.0
 ```
 
 The `config show` command reads the same environment-driven settings as the core
