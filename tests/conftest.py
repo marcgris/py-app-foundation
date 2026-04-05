@@ -70,9 +70,7 @@ def monkeypatch_env(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
 
 
 @pytest.fixture
-def isolation(
-    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
-) -> Iterator[dict[str, Path]]:
+def isolation(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> Iterator[dict[str, Path]]:
     """Provide test isolation: temporary directory and env cleanup.
 
     Args:
