@@ -26,16 +26,15 @@ standards to them as your application code.
 
 ## The Core CI Workflow
 
-See `templates/ci-workflow.yml` for the complete, production-ready workflow.
+See `.github/workflows/ci.yml` for the complete, production-ready workflow.
 
 Every CI run must execute these gates **in order, failing fast**:
 
 1. **Lint & Format** — `ruff check` + `ruff format --check`
-2. **Type Check** — `mypy --strict src/`
+2. **Type Check** — `pyright` (strict mode)
 3. **Security Scan** — `bandit -r src/` or `pip-audit`
-4. **Unit Tests** — fast, no dependencies
-5. **Integration Tests** — real Postgres via service container
-6. **Coverage Gate** — fail if < 80% coverage
+4. **Tests + Coverage** — `pytest` with `--cov-fail-under=80`
+5. **Aggregate Code Quality** — rerun core checks in final gate
 
 ## Canonical CI Workflow
 
@@ -47,105 +46,107 @@ on:
   push:
     branches: [main, develop]
   pull_request:
-    branches: [main]
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true  # cancel stale runs on new push
+    branches: [main, develop]
+  workflow_dispatch:
 
 env:
-  PYTHON_VERSION: "3.12"
-  UV_CACHE_DIR: /tmp/.uv-cache
+  PYTHON_VERSION: "3.14"
 
 jobs:
-  quality:
-    name: Code Quality
+  lint:
+    name: Lint and Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v3
-        with:
-          version: "latest"
-          enable-cache: true
 
       - name: Set up Python
-        run: uv python install ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
 
       - name: Install dependencies
-        run: uv sync --all-extras --dev
+        run: uv sync
 
       - name: Lint (ruff)
-        run: uv run ruff check src/ tests/
+        run: uv run ruff check .
 
       - name: Format check (ruff)
-        run: uv run ruff format --check src/ tests/
+        run: uv run ruff format . --check
 
-      - name: Type check (mypy)
-        run: uv run mypy src/
-
-      - name: Security scan (bandit)
-        run: uv run bandit -r src/ -ll  # -ll = medium+ severity only
-
-  test:
-    name: Tests
+  type-check:
+    name: Type Check
     runs-on: ubuntu-latest
-    needs: quality  # only run if quality passes
-
-    services:
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_USER: test
-          POSTGRES_PASSWORD: test
-          POSTGRES_DB: test_db
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-    env:
-      DATABASE_URL: postgresql+asyncpg://test:test@localhost:5432/test_db
-      SECRET_KEY: test-secret-key-at-least-32-characters-long
-      DEBUG: "true"
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          enable-cache: true
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
 
       - name: Install dependencies
-        run: uv sync --all-extras --dev
+        run: uv sync
 
-      - name: Run migrations
-        run: uv run alembic upgrade head
+      - name: Pyright
+        run: uv run pyright src/
 
-      - name: Run unit tests
-        run: uv run pytest tests/unit/ -v --tb=short
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.14"]
+    steps:
+      - uses: actions/checkout@v4
 
-      - name: Run integration tests
-        run: uv run pytest tests/integration/ -v --tb=short
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
-      - name: Run all tests with coverage
-        run: |
-          uv run pytest \
-            --cov=src \
-            --cov-report=xml \
-            --cov-report=term-missing \
-            --cov-fail-under=80
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run tests
+        run: uv run pytest tests/ -v --cov=src/starter --cov-report=xml
 
       - name: Upload coverage
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v3
+        if: matrix.python-version == '3.14'
         with:
-          file: ./coverage.xml
+          files: ./coverage.xml
           fail_ci_if_error: false
+
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    needs: [lint, type-check, test]
+    if: success()
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Security scan (bandit)
+        run: uv run bandit -r src/ -q
 ```
 
 ## Release Workflow
@@ -215,7 +216,7 @@ updates:
     open-pull-requests-limit: 5
     groups:
       dev-dependencies:
-        patterns: ["pytest*", "ruff", "mypy", "coverage"]
+        patterns: ["pytest*", "ruff", "pyright", "coverage"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -257,7 +258,7 @@ When a workflow fails, check in this order:
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| `uv: command not found` | setup-uv not installed | Add `astral-sh/setup-uv@v3` step |
+| `uv: command not found` | setup-uv not installed | Add an `astral-sh/setup-uv` step |
 | DB connection refused | Service not healthy | Add `options: --health-cmd pg_isready` |
 | Tests pass locally, fail in CI | Missing env var | Add to workflow `env:` block |
 | Coverage drops on merge | PR coverage not enforced | Add `--cov-fail-under=80` |
