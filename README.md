@@ -62,8 +62,11 @@ The UI overlay now supports a shared-base plus profile model. The first
 implemented profile is Web.
 
 ```bash
-# Start local web profile preview
-uv run python -m http.server 4173 --directory src/starter/ui/web
+# Start local UI preview server (shared base + web profile)
+uv run python -m http.server 4173 --directory src/starter/ui
+
+# Open the web profile
+# http://localhost:4173/web/
 
 # Validate UI shared base + web profile contract
 uv run pytest tests/unit/test_ui.py tests/integration/test_ui_smoke.py -v
