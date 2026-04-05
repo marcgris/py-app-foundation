@@ -15,7 +15,7 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 	- `starter --version`
 
 ### Changed
-- CLI compatibility statement for planned Beta promotion:
+- CLI compatibility statement for CLI Beta promotion in this release:
 	- The CLI command surface is treated as a stable compatibility contract for one release cycle.
 	- Covered commands are `starter health`, `starter config show`, and `starter --version`.
 	- Exit code contract remains `0` (success), `1` (configuration/runtime command failure), and `2` (usage/parser error).
