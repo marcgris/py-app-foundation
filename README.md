@@ -7,7 +7,7 @@ A reusable, professional, secure foundation for building Python applications wit
 - **Framework-Light Core**: No premature choices about web frameworks, ORMs, or deployment
 - **Secure by Default**: Linting, type-checking, and security scanning always on
 - **Agent-Friendly**: Explicit guardrails and instructions for reliable autonomous development
-- **Composable**: One core foundation plus optional overlays for CLI, API, and worker applications
+- **Composable**: One core foundation plus optional overlays for CLI, UI, API, and worker applications
 - **Strong Defaults**: Tested patterns for configuration, logging, and error handling
 
 ## Quick Start

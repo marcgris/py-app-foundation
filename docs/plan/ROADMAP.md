@@ -29,7 +29,7 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 4. Security scanning and supply-chain checks.
 5. CI workflows and local validation workflow.
 6. Agent instruction files and guardrails.
-7. First-wave overlays for CLI, API, worker, and UI projects.
+7. First-wave overlays for CLI, UI, API, and worker projects.
 8. Planning artifacts and handoff process.
 
 ## Out of Scope
@@ -45,7 +45,7 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 1. **Phase 1**: Planning artifacts, scope boundaries, and architecture decisions. ✅ Complete
 2. **Phase 2**: Core template skeleton and repository structure. ✅ Complete
 3. **Phase 3**: Agent workflow, validation stack, and CI guardrails.
-4. **Phase 4**: CLI, API, worker, and UI overlays.
+4. **Phase 4**: CLI, UI, API, and worker overlays.
 5. **Phase 5**: Validation, sample generation, and release readiness.
 
 ## Current Focus
@@ -101,9 +101,9 @@ Retire this roadmap subsection when all of the following are true:
 2. ✅ Create test infrastructure with working fixtures and smoke tests.
 3. ✅ Configure and validate the local CI workflow (uv sync, pytest, ruff, pyright, bandit).
 4. ✅ Create the CLI overlay skeleton.
-5. Create the API overlay skeleton.
-6. Create the worker overlay skeleton.
-7. Create the UI overlay skeleton.
+5. Create the UI Shared Base + Web profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
+6. Create the API overlay skeleton.
+7. Create the worker overlay skeleton.
 8. Verify all four overlays pass validation.
 9. Document the bootstrap and generation process.
 10. Prepare v1 release and maintenance guidelines.

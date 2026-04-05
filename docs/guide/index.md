@@ -7,7 +7,7 @@ Welcome to Py App Foundation—a reusable, professional, secure foundation for b
 This repository is a template and reference implementation for bootstrapping production-grade Python projects. It provides:
 
 - **Strong Defaults**: Linting, type-checking, testing, and security scanning out of the box
-- **Composable Architecture**: One core foundation plus optional overlays for CLI, API, and background worker applications
+- **Composable Architecture**: One core foundation plus optional overlays for CLI, UI, API, and background worker applications
 - **Agent-Friendly**: Explicit guardrails and instruction files that make autonomous development workflows reliable
 - **Framework-Light**: No premature choices about web frameworks, ORMs, or deployment targets
 
@@ -17,6 +17,7 @@ This repository is a template and reference implementation for bootstrapping pro
 - **For Contributors**: See [contributing.md](contributing.md)
 - **For Releases**: See [release-checklist.md](release-checklist.md)
 - **CLI Command Contract**: See [cli-command-contract.md](cli-command-contract.md)
+- **UI Overlay Contract**: See [ui-overlay-contract.md](ui-overlay-contract.md)
 - **For Design Context**: See the [planning docs](../plan/ROADMAP.md)
 - **Architecture Details**: See [ARCHITECTURE.md](../plan/ARCHITECTURE.md)
 - **Change History**: See [../../CHANGELOG.md](../../CHANGELOG.md)
@@ -99,9 +100,12 @@ This table is meant to answer two questions quickly:
 |-----------|------|-------------------------------|----------------|-----------------|--------------|--------------------------|-------|
 | Core/Base Template | Base foundation | Yes | Beta | v0.1.0 | v0.1.0 | Latest release tag (currently `v0.4.0`) | Foundation modules and validation stack used by all project types |
 | CLI | Overlay | No | Beta | v0.3.0 | v0.4.0 | `v0.4.0` or newer | Commands: `starter health`, `starter config show`, `starter --version`; compatibility contract documented |
+| UI Shared Base | Overlay foundation | No | Planned | N/A | N/A | N/A | Shared cross-platform UI contract; see `ui-overlay-contract.md` |
+| UI Web Profile | Overlay profile | No | Planned | N/A | N/A | N/A | Web-specific profile under UI overlay family |
+| UI Desktop Profile | Overlay profile | No | Planned | N/A | N/A | N/A | Desktop-specific profile under UI overlay family |
+| UI Mobile Profile | Overlay profile | No | Planned | N/A | N/A | N/A | Mobile-specific profile under UI overlay family |
 | API | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | Worker | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| UI | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | Scheduled Jobs/Cron | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 | Data/ETL Pipeline | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 | MCP Server | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
@@ -128,6 +132,19 @@ CLI reached Beta in `v0.4.0`.
 
 For current compatibility guarantees and command contract details, see [cli-command-contract.md](cli-command-contract.md).
 For the release history of this status change, see [../../CHANGELOG.md](../../CHANGELOG.md).
+
+### UI Status
+
+The UI overlay now uses a shared-base plus profile model:
+
+- UI Shared Base: Planned
+- Web profile: Planned
+- Desktop profile: Planned
+- Mobile profile: Planned
+
+Implementation order remains UI before API and worker, with Web expected to be the first implemented profile.
+
+For the UI overlay contract and profile rules, see [ui-overlay-contract.md](ui-overlay-contract.md).
 
 Recommended implementation order (current):
 
