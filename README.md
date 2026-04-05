@@ -77,6 +77,18 @@ Deterministic smoke marker contract for the web profile:
 See [docs/guide/ui-overlay-contract.md](docs/guide/ui-overlay-contract.md) for
 the full shared-base and profile contract model.
 
+## UI Desktop Profile (Current)
+
+The Desktop profile now includes a minimal deterministic shell contract.
+
+```bash
+# Run desktop profile shell
+uv run python src/starter/ui/desktop/app.py
+
+# Validate desktop profile contract tests
+uv run pytest tests/unit/test_ui_desktop.py tests/integration/test_ui_desktop_smoke.py -v
+```
+
 ## Validation
 
 Every project built from this starter must pass:

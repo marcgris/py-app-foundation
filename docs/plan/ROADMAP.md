@@ -100,14 +100,19 @@ Retire this roadmap subsection when all of the following are true:
 Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for UI overlays.
 
 1. ✅ Checkpoint 1 (current): Run a gap assessment immediately after UI Shared Base + Web profile merge.
-2. ⏳ Checkpoint 2 (next): Re-run assessment before starting UI Desktop profile implementation.
+2. ✅ Checkpoint 2: Re-run assessment before starting UI Desktop profile implementation.
 3. ⏳ Checkpoint 3 (hardening): Re-run assessment before promoting UI Shared Base or Web profile from Experimental to Beta.
 
 Checkpoint 1 outcome summary:
 
 1. Adopt now: `python-testing`, `security-audit`, and `github-actions` guidance for UI profile smoke checks, release gating, and CI hardening.
-2. Defer to Checkpoint 2: `observability`, `dependency-management`, and `python-refactor` guidance after Desktop profile runtime/tooling decisions are concrete.
+2. Defer to Checkpoint 3: `observability`, `dependency-management`, and `python-refactor` guidance after Desktop profile runtime/tooling decisions are concrete.
 3. Skip for current UI scope: `python-api-endpoint`, `pydantic-models`, and `db-migrations` because current UI work is static/profile-shell focused.
+
+Checkpoint 2 outcome summary:
+
+1. Continue adopted set: `python-testing`, `security-audit`, and `github-actions` for Desktop profile smoke checks and CI gating.
+2. Keep deferred set for later hardening: `observability`, `dependency-management`, and `python-refactor`.
 
 ## Upcoming Work
 
@@ -116,11 +121,12 @@ Checkpoint 1 outcome summary:
 3. ✅ Configure and validate the local CI workflow (uv sync, pytest, ruff, pyright, bandit).
 4. ✅ Create the CLI overlay skeleton.
 5. ✅ Create the UI Shared Base + Web profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
-6. Create the API overlay skeleton.
-7. Create the worker overlay skeleton.
-8. Verify all planned overlays and UI profiles pass validation.
-9. Document the bootstrap and generation process.
-10. Prepare v1 release and maintenance guidelines.
+6. ✅ Create the UI Desktop profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
+7. Create the API overlay skeleton.
+8. Create the worker overlay skeleton.
+9. Verify all planned overlays and UI profiles pass validation.
+10. Document the bootstrap and generation process.
+11. Prepare v1 release and maintenance guidelines.
 
 ## CLI Overlay Milestones (Phase 4 Kickoff)
 
