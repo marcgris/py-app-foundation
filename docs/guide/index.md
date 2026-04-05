@@ -105,7 +105,7 @@ This table is meant to answer two questions quickly:
 | UI Desktop Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Desktop-specific profile under UI overlay family |
 | UI Mobile Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Mobile-specific profile under UI overlay family |
 | API | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Framework-light API profile skeleton with deterministic health contract |
-| Worker | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| Worker | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Framework-light worker profile skeleton with deterministic job-result contract |
 | Scheduled Jobs/Cron | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 | Data/ETL Pipeline | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 | MCP Server | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
