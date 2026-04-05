@@ -47,7 +47,7 @@ Use it together with `release-checklist.md` and `contributing.md`.
 2. Release owner responsibilities:
    - confirm changelog/version consistency,
    - run full validation locally,
-   - ensure CI and release guard checks are green,
+   - ensure CI, security workflows, and all checks required by `docs/guide/release-checklist.md` are green,
    - publish release notes.
 3. Any contributor merging release-affecting changes must keep docs and matrix entries current.
 
@@ -62,6 +62,8 @@ uv run ruff format . --check
 uv run pyright src/
 uv run pytest tests/ -v
 uv run bandit -r src/
+uv export --format requirements.txt --no-emit-project --no-dev --frozen --output-file requirements-audit.txt
+uv run pip-audit --desc --strict -r requirements-audit.txt
 ```
 
 ## Incident Response For Regressions

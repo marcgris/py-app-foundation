@@ -251,4 +251,4 @@ Checkpoint 1 outcome summary:
 6. ✅ All core modules have passing tests.
 7. ✅ All overlays skeleton and pass validation.
 8. ✅ Documentation is complete and current.
-9. ✅ First v1 release is tagged and documented.
+9. ✅ First v1 release is tagged (`v1.0.0`) and documented.
