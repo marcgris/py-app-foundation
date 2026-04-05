@@ -88,35 +88,37 @@ This core is designed to be extended:
 
 Each overlay adds minimal framework-specific code while inheriting the core's validation and guardrails.
 
-### Overlay Compatibility Matrix
+### Template And Overlay Compatibility Matrix
 
-Use this matrix to track base template and overlay maturity while keeping a single repository version stream.
+This table is meant to answer two questions quickly:
 
-| Overlay | Status | Introduced In | Last Breaking Change | Current Stable As Of | Notes |
-|---------|--------|---------------|----------------------|----------------------|-------|
-| Core/Base Template | Beta | v0.1.0 | N/A | v0.3.0 | Implemented and validated; overall project remains pre-v1 |
-| CLI | Beta | v0.3.0 | v0.3.0 | N/A | Stable command contract documented for `starter health`, `starter config show`, and `starter --version` |
-| API | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| Worker | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| UI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| Scheduled Jobs/Cron | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| Data/ETL Pipeline | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| MCP Server | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| Library/Package-Only | Backlog | N/A | N/A | N/A | Candidate for later demand |
+1. What is included by default in a core-only project?
+2. Which release tag should I start from for a given capability?
 
-Version selection quick guide:
+| Component | Type | Included In Core-Only Project | Current Status | First Available | Status Since | Recommended Starting Tag | Notes |
+|-----------|------|-------------------------------|----------------|-----------------|--------------|--------------------------|-------|
+| Core/Base Template | Base foundation | Yes | Beta | v0.1.0 | v0.1.0 | Latest release tag (currently `v0.4.0`) | Foundation modules and validation stack used by all project types |
+| CLI | Overlay | No | Beta | v0.3.0 | v0.4.0 | `v0.4.0` or newer | Commands: `starter health`, `starter config show`, `starter --version`; compatibility contract documented |
+| API | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| Worker | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| UI | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
+| Scheduled Jobs/Cron | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Data/ETL Pipeline | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| MCP Server | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Library/Package-Only | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 
-- Core-only (no implemented overlays in the template): use `v0.2.1` (last core-only release).
-- Core + CLI overlay baseline: use `v0.3.0` or newer.
-- Core + CLI overlay with Beta-level compatibility contract: use `v0.4.0` or newer.
+Status legend used in the table:
 
-Status definitions:
+- Planned: designed but not implemented.
+- Backlog: candidate tracked for future planning.
+- Experimental: implemented, may change quickly.
+- Beta: feature-complete for trial usage.
+- Stable: production-ready with managed compatibility expectations.
 
-- Planned: designed but not implemented
-- Backlog: candidate overlay tracked for future planning
-- Experimental: implemented, may change quickly
-- Beta: feature-complete for trial usage
-- Stable: production-ready with managed compatibility expectations
+Core-only quick rule:
+
+- Use `v0.2.1` if you want a snapshot with no implemented overlays present in the template.
+- Use latest release tag if you want current core improvements and are okay with CLI overlay code being present.
 
 Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is released, all planned overlays pass the full validation gate, and release documentation confirms no open v1 exit criteria.
 
