@@ -2,6 +2,8 @@
 
 Use this checklist every time you generate a new project from the Py App Foundation template.
 
+For a visual big-picture flow and explicit cut-and-paste generation commands, use [bootstrap-generation-playbook.md](bootstrap-generation-playbook.md).
+
 ## Step 1: Create the Repository
 
 ### Option A — GitHub Template (no tooling required)

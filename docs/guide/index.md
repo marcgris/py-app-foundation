@@ -14,6 +14,7 @@ This repository is a template and reference implementation for bootstrapping pro
 ## Quick Links
 
 - **Starting a New Project**: See [new-project.md](new-project.md)
+- **Bootstrap and Generation Playbook**: See [bootstrap-generation-playbook.md](bootstrap-generation-playbook.md)
 - **For Contributors**: See [contributing.md](contributing.md)
 - **For Releases**: See [release-checklist.md](release-checklist.md)
 - **CLI Command Contract**: See [cli-command-contract.md](cli-command-contract.md)
