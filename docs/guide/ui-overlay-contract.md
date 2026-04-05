@@ -38,7 +38,7 @@ Initial status targets:
 - UI Shared Base: `Experimental`
 - Web profile: `Experimental`
 - Desktop profile: `Experimental`
-- Mobile profile: `Planned` until implemented
+- Mobile profile: `Experimental`
 
 Change policy while `Experimental`:
 

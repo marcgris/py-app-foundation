@@ -92,6 +92,18 @@ uv run python src/starter/ui/desktop/app.py
 uv run pytest tests/unit/test_ui_desktop.py tests/integration/test_ui_desktop_smoke.py -v
 ```
 
+## UI Mobile Profile (Current)
+
+The Mobile profile now includes a minimal deterministic shell contract.
+
+```bash
+# Run mobile profile shell
+uv run python src/starter/ui/mobile/app.py
+
+# Validate mobile profile contract tests
+uv run pytest tests/unit/test_ui_mobile.py tests/integration/test_ui_mobile_smoke.py -v
+```
+
 ## Validation
 
 Every project built from this starter must pass:
