@@ -1,0 +1,22 @@
+:root {
+  --font-display: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+
+  --color-bg: #f4f3ef;
+  --color-surface: #fffdf7;
+  --color-text: #1f1f1f;
+  --color-accent: #0d9488;
+  --color-accent-strong: #0f766e;
+  --color-border: #d6d3ce;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+}

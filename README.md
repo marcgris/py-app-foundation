@@ -56,6 +56,27 @@ The `config show` command reads the same environment-driven settings as the core
 starter modules, and command failures from invalid configuration return a
 deterministic non-zero error response.
 
+## UI Overlay (Shared Base + Web Profile)
+
+The UI overlay now supports a shared-base plus profile model. The first
+implemented profile is Web.
+
+```bash
+# Start local web profile preview
+uv run python -m http.server 4173 --directory src/starter/ui/web
+
+# Validate UI shared base + web profile contract
+uv run pytest tests/unit/test_ui.py tests/integration/test_ui_smoke.py -v
+```
+
+Deterministic smoke marker contract for the web profile:
+
+- Element ID: `starter-ui-smoke-marker`
+- Marker text: `starter-ui-web-ready`
+
+See [docs/guide/ui-overlay-contract.md](docs/guide/ui-overlay-contract.md) for
+the full shared-base and profile contract model.
+
 ## Validation
 
 Every project built from this starter must pass:

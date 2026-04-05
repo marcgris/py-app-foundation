@@ -101,10 +101,10 @@ Retire this roadmap subsection when all of the following are true:
 2. ✅ Create test infrastructure with working fixtures and smoke tests.
 3. ✅ Configure and validate the local CI workflow (uv sync, pytest, ruff, pyright, bandit).
 4. ✅ Create the CLI overlay skeleton.
-5. Create the UI Shared Base + Web profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
+5. ✅ Create the UI Shared Base + Web profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
 6. Create the API overlay skeleton.
 7. Create the worker overlay skeleton.
-8. Verify all four overlays pass validation.
+8. Verify all planned overlays and UI profiles pass validation.
 9. Document the bootstrap and generation process.
 10. Prepare v1 release and maintenance guidelines.
 
