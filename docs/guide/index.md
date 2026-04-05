@@ -16,6 +16,7 @@ This repository is a template and reference implementation for bootstrapping pro
 - **Starting a New Project**: See [new-project.md](new-project.md)
 - **For Contributors**: See [contributing.md](contributing.md)
 - **For Releases**: See [release-checklist.md](release-checklist.md)
+- **CLI Command Contract**: See [cli-command-contract.md](cli-command-contract.md)
 - **For Design Context**: See the [planning docs](../plan/ROADMAP.md)
 - **Architecture Details**: See [ARCHITECTURE.md](../plan/ARCHITECTURE.md)
 - **Change History**: See [../../CHANGELOG.md](../../CHANGELOG.md)
@@ -94,7 +95,7 @@ Use this matrix to track base template and overlay maturity while keeping a sing
 | Overlay | Status | Introduced In | Last Breaking Change | Current Stable As Of | Notes |
 |---------|--------|---------------|----------------------|----------------------|-------|
 | Core/Base Template | Beta | v0.1.0 | N/A | v0.3.0 | Implemented and validated; overall project remains pre-v1 |
-| CLI | Experimental | v0.3.0 | v0.3.0 | N/A | Implemented baseline commands: `starter health`, `starter config show`, and `starter --version` |
+| CLI | Beta | v0.3.0 | v0.3.0 | N/A | Stable command contract documented for `starter health`, `starter config show`, and `starter --version` |
 | API | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | Worker | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | UI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
@@ -117,14 +118,14 @@ Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is relea
 
 Move CLI from Experimental to Beta only when all checklist items are completed:
 
-- [ ] CLI command contract is documented and frozen for one release cycle.
+- [x] CLI command contract is documented and frozen for one release cycle.
 - [x] Command names and semantics are stable for `starter health`, `starter config show`, and `starter --version`.
-- [ ] Exit codes are documented and covered by tests.
-- [ ] Deterministic config-error stderr format is documented and covered by tests.
+- [x] Exit codes are documented and covered by tests.
+- [x] Deterministic config-error stderr format is documented and covered by tests.
 - [x] `config show` JSON output shape is documented and covered by tests.
 - [x] Unit and integration smoke tests for CLI commands are passing in CI.
 - [x] Validation gates pass with no CLI-specific exceptions: ruff, pyright, pytest, and bandit.
-- [ ] Changelog and release notes include the CLI compatibility statement for the release where status changes to Beta.
+- [x] Changelog and release notes include the CLI compatibility statement for the release where status changes to Beta.
 
 Recommended implementation order (current):
 

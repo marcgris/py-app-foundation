@@ -6,6 +6,22 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-04-04
+
+### Added
+- CLI overlay promotion to Beta with a documented compatibility contract for:
+	- `starter health`
+	- `starter config show`
+	- `starter --version`
+
+### Changed
+- CLI compatibility statement for planned Beta promotion:
+	- The CLI command surface is treated as a stable compatibility contract for one release cycle.
+	- Covered commands are `starter health`, `starter config show`, and `starter --version`.
+	- Exit code contract remains `0` (success), `1` (configuration/runtime command failure), and `2` (usage/parser error).
+	- Deterministic configuration stderr format remains stable: `Configuration error while running '<command>': <message>.`
+- Updated overlay compatibility matrix to mark CLI as `Beta`.
+
 ## [0.3.0] - 2026-04-03
 
 ### Added

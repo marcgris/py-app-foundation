@@ -1,5 +1,6 @@
 """Tests for the CLI module."""
 
+import argparse
 import json
 
 import pytest
@@ -27,6 +28,23 @@ class TestBuildParser:
         assert parsed.command == "config"
         assert parsed.config_command == "show"
 
+    def test_build_parser_command_tree_matches_contract(self) -> None:
+        """Test parser command and subcommand names remain contract-stable."""
+        parser = build_parser()
+
+        top_level_subparsers = next(
+            action for action in parser._actions if isinstance(action, argparse._SubParsersAction)
+        )
+        assert sorted(top_level_subparsers.choices.keys()) == ["config", "health"]
+
+        config_parser = top_level_subparsers.choices["config"]
+        config_subparsers = next(
+            action
+            for action in config_parser._actions
+            if isinstance(action, argparse._SubParsersAction)
+        )
+        assert sorted(config_subparsers.choices.keys()) == ["show"]
+
 
 class TestMain:
     """Test suite for CLI command dispatch."""
@@ -48,6 +66,12 @@ class TestMain:
     def test_main_with_invalid_command_returns_usage_error(self) -> None:
         """Test that invalid command returns argparse usage code."""
         exit_code = main(["not-a-command"])
+
+        assert exit_code == 2
+
+    def test_main_config_without_subcommand_returns_usage_error(self) -> None:
+        """Test that missing config subcommand returns argparse usage code."""
+        exit_code = main(["config"])
 
         assert exit_code == 2
 
