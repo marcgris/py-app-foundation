@@ -8,10 +8,10 @@ and JavaScript so the template remains framework-light.
 From repository root:
 
 ```bash
-uv run python -m http.server 4173 --directory src/starter/ui/web
+uv run python -m http.server 4173 --directory src/starter/ui
 ```
 
-Then open `http://localhost:4173/`.
+Then open `http://localhost:4173/web/`.
 
 ## Validation Contract
 
