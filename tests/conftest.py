@@ -3,7 +3,6 @@
 import tempfile
 from collections.abc import Generator
 from pathlib import Path
-from typing import Any
 
 import pytest
 
@@ -12,7 +11,7 @@ from starter.logging import get_logger
 
 
 @pytest.fixture
-def temp_env_file() -> Generator[Path]:
+def temp_env_file() -> Generator[Path, None, None]:
     """Provide a temporary .env file for testing.
 
     Yields:
@@ -71,7 +70,9 @@ def monkeypatch_env(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
 
 
 @pytest.fixture
-def isolation(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> dict[str, Any]:
+def isolation(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> Generator[dict[str, Path], None, None]:
     """Provide test isolation: temporary directory and env cleanup.
 
     Args:
