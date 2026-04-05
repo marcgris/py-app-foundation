@@ -108,6 +108,25 @@ Expected output for reviews:
 2. Concrete remediation guidance with file-level references
 3. Explicit statement when no material findings are present
 
+### UI Overlay Prompt Cookbook (Checkpoint 1)
+
+Use these prompts when working on UI Shared Base and UI profile changes.
+
+1. python-testing
+   - "Use python-testing: add or improve smoke tests for the UI profile startup marker contract and shared-base asset references."
+   - "Use python-testing: review UI tests for missing failure-path assertions and contract regressions in tests/unit/test_ui.py and tests/integration/test_ui_smoke.py."
+2. security-audit
+   - "Use security-audit: perform a focused review of UI overlay files for secret leakage, unsafe defaults, and risky external references."
+   - "Use security-audit: review docs and sample commands for security-sensitive guidance before release tagging."
+3. github-actions
+   - "Use github-actions: propose CI updates to run UI smoke tests as part of existing quality gates without duplicating current checks."
+   - "Use github-actions: review current workflow ordering and suggest the smallest safe change to enforce UI contract checks in PR validation."
+
+Scope note:
+
+- This cookbook currently targets the adopted Checkpoint 1 skills only.
+- Revisit and expand this section at UI Skill-Library Checkpoint 2 before Desktop profile implementation.
+
 ### Allowed Operations
 
 - ✅ Read any file under `src/` and `tests/`

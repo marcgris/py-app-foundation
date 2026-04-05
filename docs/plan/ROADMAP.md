@@ -95,6 +95,20 @@ Retire this roadmap subsection when all of the following are true:
 3. Pre-release quality gates include the adopted AI-assisted checks.
 4. The team is using the embedded workflows consistently without referencing this temporary plan.
 
+### UI Skill-Library Checkpoints
+
+Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for UI overlays.
+
+1. ✅ Checkpoint 1 (current): Run a gap assessment immediately after UI Shared Base + Web profile merge.
+2. ⏳ Checkpoint 2 (next): Re-run assessment before starting UI Desktop profile implementation.
+3. ⏳ Checkpoint 3 (hardening): Re-run assessment before promoting UI Shared Base or Web profile from Experimental to Beta.
+
+Checkpoint 1 outcome summary:
+
+1. Adopt now: `python-testing`, `security-audit`, and `github-actions` guidance for UI profile smoke checks, release gating, and CI hardening.
+2. Defer to Checkpoint 2: `observability`, `dependency-management`, and `python-refactor` guidance after Desktop profile runtime/tooling decisions are concrete.
+3. Skip for current UI scope: `python-api-endpoint`, `pydantic-models`, and `db-migrations` because current UI work is static/profile-shell focused.
+
 ## Upcoming Work
 
 1. ✅ Complete core package modules (config.py, logging.py, exceptions.py).
