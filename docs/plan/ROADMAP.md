@@ -130,7 +130,7 @@ Checkpoint 3 outcome summary:
 5. ✅ Create the UI Shared Base + Web profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
 6. ✅ Create the UI Desktop profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
 7. ✅ Create the UI Mobile profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
-8. Create the API overlay skeleton.
+8. ✅ Create the API overlay skeleton.
 9. Create the worker overlay skeleton.
 10. Verify all planned overlays and UI profiles pass validation.
 11. Document the bootstrap and generation process.
