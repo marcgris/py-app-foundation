@@ -104,6 +104,19 @@ uv run python src/starter/ui/mobile/app.py
 uv run pytest tests/unit/test_ui_mobile.py tests/integration/test_ui_mobile_smoke.py -v
 ```
 
+## API Overlay Profile (Current)
+
+The API profile now includes a minimal framework-light skeleton with a
+deterministic health-route contract.
+
+```bash
+# Run API profile shell
+uv run python src/starter/api/app.py
+
+# Validate API profile contract tests
+uv run pytest tests/unit/test_api.py tests/integration/test_api_smoke.py -v
+```
+
 ## Validation
 
 Every project built from this starter must pass:

@@ -95,6 +95,23 @@ Retire this roadmap subsection when all of the following are true:
 3. Pre-release quality gates include the adopted AI-assisted checks.
 4. The team is using the embedded workflows consistently without referencing this temporary plan.
 
+### Checkpoint Contract (Definition of Done)
+
+Every skill-library checkpoint in this roadmap must produce the same minimum artifacts so decisions are auditable and repeatable.
+
+1. Trigger: a defined project event occurs (for example, skeleton merged or promotion review started).
+2. Scope: only the target overlay/profile and the next delivery milestone are evaluated.
+3. Assessment Output: classify each candidate skill as `Adopt now`, `Defer`, or `Skip` with a one-line rationale.
+4. Documentation Update: record outcomes in this roadmap and, when release-impacting, in `docs/guide/release-checklist.md`.
+5. Action Binding: any `Adopt now` skill must be reflected in practical guidance (for example cookbook prompts in `docs/guide/contributing.md`) before checkpoint close.
+
+Checkpoint completion criteria:
+
+1. Outcome summary exists under the checkpoint section.
+2. At least one concrete workflow/prompt update exists for each adopted skill.
+3. Deferred skills include a named re-evaluation checkpoint.
+4. Any beta-promotion blockers discovered at the checkpoint are captured in release checklist status tables.
+
 ### UI Skill-Library Checkpoints
 
 Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for UI overlays.
@@ -121,6 +138,26 @@ Checkpoint 3 outcome summary:
 3. Keep `dependency-management` and `python-refactor` deferred to API/worker overlay implementation phases where toolchain and architectural complexity increase.
 4. UI profiles remain `Experimental` until Beta freeze notes and one full release-cycle stability evidence are documented.
 
+### API Skill-Library Checkpoints
+
+Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for API overlays.
+
+1. ✅ Checkpoint 1: Run a gap assessment immediately after API skeleton merge.
+2. ⏳ Checkpoint 2: Re-run assessment before promoting API overlay from Experimental to Beta.
+
+Checkpoint 1 outcome summary:
+
+1. Adopt now: `python-testing`, `security-audit`, and `github-actions` guidance for API smoke checks and CI gating.
+2. Adopt now for API-specific implementation phases: `python-api-endpoint` and `pydantic-models`.
+3. Defer: `observability`, `dependency-management`, and `python-refactor` until API runtime complexity and integration depth increase.
+
+### Worker Skill-Library Checkpoints
+
+Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for worker overlays.
+
+1. ⏳ Checkpoint 1: Run a gap assessment immediately after worker skeleton merge.
+2. ⏳ Checkpoint 2: Re-run assessment before promoting worker overlay from Experimental to Beta.
+
 ## Upcoming Work
 
 1. ✅ Complete core package modules (config.py, logging.py, exceptions.py).
@@ -130,7 +167,7 @@ Checkpoint 3 outcome summary:
 5. ✅ Create the UI Shared Base + Web profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
 6. ✅ Create the UI Desktop profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
 7. ✅ Create the UI Mobile profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
-8. Create the API overlay skeleton.
+8. ✅ Create the API overlay skeleton.
 9. Create the worker overlay skeleton.
 10. Verify all planned overlays and UI profiles pass validation.
 11. Document the bootstrap and generation process.

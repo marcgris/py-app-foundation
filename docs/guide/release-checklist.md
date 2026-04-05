@@ -87,6 +87,50 @@ Definition of done for UI Beta promotion:
 2. Beta freeze expectations are documented (commands, markers, and error behavior where applicable).
 3. Release notes include compatibility statement for promoted UI components.
 
+## API Beta Readiness Checklist
+
+Use this checklist before promoting API overlay from `Experimental` to `Beta`.
+
+Current baseline status snapshot:
+
+| Item | Current Status | Notes |
+|---|---|---|
+| API overlay skeleton | Completed | Implemented and marked `Experimental` |
+| API Skill-Library Checkpoint 1 | Completed | Recorded in roadmap |
+| API Skill-Library Checkpoint 2 | Not yet completed | Required before Beta promotion |
+| Beta freeze statement for API surface | Not yet completed | Must be added in release docs/changelog when promoting |
+| One full release cycle stability evidence | Not yet completed | Required by promotion guidance |
+
+Promotion checklist:
+
+1. Confirm API contract surface to freeze for one release cycle.
+2. Confirm docs/changelog alignment:
+   - `docs/guide/index.md`
+   - `docs/plan/ROADMAP.md`
+   - `CHANGELOG.md`
+3. Run full validation gates (ruff, format-check, pyright, pytest, bandit).
+4. Complete API Skill-Library Checkpoint 2 and record outcome in roadmap.
+5. Verify no open High/Critical review findings for API contract behavior.
+
+## Worker Beta Readiness Checklist
+
+Use this checklist before promoting worker overlay from `Experimental` to `Beta`.
+
+Current baseline status snapshot:
+
+| Item | Current Status | Notes |
+|---|---|---|
+| Worker overlay skeleton | Not yet completed | Planned in roadmap |
+| Worker Skill-Library Checkpoint 1 | Not yet completed | Run after worker skeleton merge |
+| Worker Skill-Library Checkpoint 2 | Not yet completed | Required before Beta promotion |
+
+Promotion checklist:
+
+1. Implement worker skeleton and baseline smoke contract tests.
+2. Run Worker Skill-Library Checkpoint 1 and record outcomes.
+3. Complete full validation gates and CI checks.
+4. Run Worker Skill-Library Checkpoint 2 before Beta promotion.
+
 ## Tagging And Publishing
 
 1. Merge the release prep PR into main.
