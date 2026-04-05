@@ -1,6 +1,9 @@
 """Integration smoke tests for API overlay profile skeleton."""
 
 import json
+import runpy
+from collections.abc import Callable
+from typing import cast
 
 import pytest
 
@@ -25,9 +28,10 @@ class TestApiSmoke:
 
     def test_api_shell_output_contract_shape(self, capsys: pytest.CaptureFixture[str]) -> None:
         """Test API shell run output emits JSON with expected contract keys."""
-        from starter.api.app import run
+        namespace = runpy.run_path(str(get_api_entry_file()))
+        run_fn = cast(Callable[[], None], namespace["run"])
 
-        run()
+        run_fn()
 
         captured = capsys.readouterr()
         payload = json.loads(captured.out)
