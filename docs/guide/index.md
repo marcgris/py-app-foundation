@@ -104,6 +104,12 @@ Use this matrix to track base template and overlay maturity while keeping a sing
 | MCP Server | Backlog | N/A | N/A | N/A | Candidate for later demand |
 | Library/Package-Only | Backlog | N/A | N/A | N/A | Candidate for later demand |
 
+Version selection quick guide:
+
+- Core-only (no implemented overlays in the template): use `v0.2.1` (last core-only release).
+- Core + CLI overlay baseline: use `v0.3.0` or newer.
+- Core + CLI overlay with Beta-level compatibility contract: use `v0.4.0` or newer.
+
 Status definitions:
 
 - Planned: designed but not implemented
