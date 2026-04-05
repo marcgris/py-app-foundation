@@ -122,18 +122,12 @@ Core-only quick rule:
 
 Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is released, all planned overlays pass the full validation gate, and release documentation confirms no open v1 exit criteria.
 
-### CLI Beta Acceptance Criteria
+### CLI Status
 
-Move CLI from Experimental to Beta only when all checklist items are completed:
+CLI reached Beta in `v0.4.0`.
 
-- [x] CLI command contract is documented and frozen for one release cycle.
-- [x] Command names and semantics are stable for `starter health`, `starter config show`, and `starter --version`.
-- [x] Exit codes are documented and covered by tests.
-- [x] Deterministic config-error stderr format is documented and covered by tests.
-- [x] `config show` JSON output shape is documented and covered by tests.
-- [x] Unit and integration smoke tests for CLI commands are passing in CI.
-- [x] Validation gates pass with no CLI-specific exceptions: ruff, pyright, pytest, and bandit.
-- [x] Changelog and release notes include the CLI compatibility statement for the release where status changes to Beta.
+For current compatibility guarantees and command contract details, see [cli-command-contract.md](cli-command-contract.md).
+For the release history of this status change, see [../../CHANGELOG.md](../../CHANGELOG.md).
 
 Recommended implementation order (current):
 
