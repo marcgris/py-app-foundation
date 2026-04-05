@@ -117,6 +117,19 @@ uv run python src/starter/api/app.py
 uv run pytest tests/unit/test_api.py tests/integration/test_api_smoke.py -v
 ```
 
+## Worker Overlay Profile (Current)
+
+The worker profile now includes a minimal framework-light skeleton with a
+deterministic job-result contract.
+
+```bash
+# Run worker profile shell
+uv run python src/starter/worker/app.py
+
+# Validate worker profile contract tests
+uv run pytest tests/unit/test_worker.py tests/integration/test_worker_smoke.py -v
+```
+
 ## Validation
 
 Every project built from this starter must pass:

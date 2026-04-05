@@ -155,8 +155,14 @@ Checkpoint 1 outcome summary:
 
 Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for worker overlays.
 
-1. ⏳ Checkpoint 1: Run a gap assessment immediately after worker skeleton merge.
+1. ✅ Checkpoint 1: Run a gap assessment immediately after worker skeleton merge.
 2. ⏳ Checkpoint 2: Re-run assessment before promoting worker overlay from Experimental to Beta.
+
+Checkpoint 1 outcome summary:
+
+1. Adopt now: `python-testing`, `security-audit`, and `github-actions` guidance for worker smoke checks and CI gating.
+2. Adopt now for worker implementation phases: `python-refactor` for execution flow extraction and boundary hardening when worker complexity expands.
+3. Defer: `observability` and `dependency-management` until worker runtime topology (scheduler/queue/log transport) is finalized.
 
 ## Upcoming Work
 
@@ -168,8 +174,8 @@ Use these checkpoints to evaluate opportunities to adopt content from `python-co
 6. ✅ Create the UI Desktop profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
 7. ✅ Create the UI Mobile profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
 8. ✅ Create the API overlay skeleton.
-9. Create the worker overlay skeleton.
-10. Verify all planned overlays and UI profiles pass validation.
+9. ✅ Create the worker overlay skeleton.
+10. ✅ Verify all planned overlays and UI profiles pass validation.
 11. Document the bootstrap and generation process.
 12. Prepare v1 release and maintenance guidelines.
 
@@ -231,6 +237,6 @@ Use these checkpoints to evaluate opportunities to adopt content from `python-co
 4. ✅ Planning and handoff documents exist and are seeded.
 5. ✅ The repository skeleton for implementation is ready.
 6. ✅ All core modules have passing tests.
-7. ⏳ All overlays skeleton and pass validation.
+7. ✅ All overlays skeleton and pass validation.
 8. ⏳ Documentation is complete and current.
 9. ⏳ First v1 release is tagged and documented.

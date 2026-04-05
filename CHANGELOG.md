@@ -11,8 +11,10 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 - UI Desktop profile skeleton under `src/starter/ui/desktop/`.
 - UI Mobile profile skeleton under `src/starter/ui/mobile/`.
 - API overlay profile skeleton under `src/starter/api/`.
+- Worker overlay profile skeleton under `src/starter/worker/`.
 - UI overlay helper module (`starter.ui`) for deterministic skeleton discovery and validation.
 - API overlay helper module (`starter.api_overlay`) for deterministic skeleton discovery and validation.
+- Worker overlay helper module (`starter.worker_overlay`) for deterministic skeleton discovery and validation.
 - UI smoke and unit tests for shared-base and web-profile contract coverage:
 	- `tests/unit/test_ui.py`
 	- `tests/integration/test_ui_smoke.py`
@@ -25,6 +27,9 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 - API smoke and unit tests for API-profile contract coverage:
 	- `tests/unit/test_api.py`
 	- `tests/integration/test_api_smoke.py`
+- Worker smoke and unit tests for worker-profile contract coverage:
+	- `tests/unit/test_worker.py`
+	- `tests/integration/test_worker_smoke.py`
 
 ### Changed
 - Updated overlay compatibility matrix to track UI as Shared Base plus Web/Desktop/Mobile profiles.
@@ -36,6 +41,8 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 - Marked roadmap UI Mobile profile skeleton item as completed.
 - Marked API overlay profile as `Experimental` in documentation.
 - Marked roadmap API overlay skeleton item as completed.
+- Marked worker overlay profile as `Experimental` in documentation.
+- Marked roadmap worker overlay skeleton item as completed.
 
 ## [0.4.0] - 2026-04-04
 

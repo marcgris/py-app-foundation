@@ -152,6 +152,28 @@ Scope note:
 - This cookbook targets API Checkpoint 1 adopted skills.
 - Re-evaluate and extend before API Beta promotion (API Checkpoint 2).
 
+### Worker Overlay Prompt Cookbook (Checkpoint 1)
+
+Use these prompts when working on worker overlay contract and implementation changes.
+
+1. python-testing
+   - "Use python-testing: add or improve worker smoke tests for deterministic job-result contract output, including negative-path assertions."
+   - "Use python-testing: review tests/unit/test_worker.py and tests/integration/test_worker_smoke.py for missing regression scenarios before merge."
+2. security-audit
+   - "Use security-audit: perform a focused review of worker overlay files for unsafe execution defaults, input handling risks, and accidental secret exposure in logs."
+   - "Use security-audit: review worker docs and sample commands for guidance that could introduce insecure runtime behavior."
+3. github-actions
+   - "Use github-actions: propose the smallest CI update that enforces worker contract smoke checks in pull request validation."
+   - "Use github-actions: review current workflow ordering and recommend one minimal change to reduce risk of missed worker regressions."
+4. python-refactor
+   - "Use python-refactor: refactor worker execution flow to isolate job orchestration from transport/runtime wiring while preserving behavior and tests."
+   - "Use python-refactor: identify top worker code smells and apply the smallest safe extraction to reduce coupling."
+
+Scope note:
+
+- This cookbook targets Worker Checkpoint 1 adopted skills.
+- Re-evaluate and extend before Worker Beta promotion (Worker Checkpoint 2).
+
 ### Allowed Operations
 
 - ✅ Read any file under `src/` and `tests/`

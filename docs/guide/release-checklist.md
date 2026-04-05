@@ -120,8 +120,8 @@ Current baseline status snapshot:
 
 | Item | Current Status | Notes |
 |---|---|---|
-| Worker overlay skeleton | Not yet completed | Planned in roadmap |
-| Worker Skill-Library Checkpoint 1 | Not yet completed | Run after worker skeleton merge |
+| Worker overlay skeleton | Completed | Implemented and marked `Experimental` |
+| Worker Skill-Library Checkpoint 1 | Completed | Recorded in roadmap |
 | Worker Skill-Library Checkpoint 2 | Not yet completed | Required before Beta promotion |
 
 Promotion checklist:
