@@ -112,6 +112,18 @@ Checkpoint completion criteria:
 3. Deferred skills include a named re-evaluation checkpoint.
 4. Any beta-promotion blockers discovered at the checkpoint are captured in release checklist status tables.
 
+### Recommendation Register (Governance)
+
+Use this register to track skill-library and agentic workflow recommendations so deferred items are revisited at the right milestone.
+
+| ID | Recommendation | Status | Trigger To Act | Target Checkpoint | Evidence To Close |
+|---|---|---|---|---|---|
+| REC-001 | Align installed capabilities with adopted-now cookbook prompts (skills/agents). | ✅ Adopted | Immediate | Completed | Skills and agents present under `.github/skills/` and `.github/agents/` |
+| REC-002 | Keep dependency guidance aligned with `pyproject.toml` conventions (`[dependency-groups]`). | ✅ Adopted | Immediate | Completed | Local dependency-management skill examples updated |
+| REC-003 | Adopt migration-first workflows (`db-migrations` skill and `db-architect` agent). | ⏳ Deferred | First persistence-backed API resource or first Alembic migration introduced | API Checkpoint 2 (or first persistence milestone) | Skill/agent added and referenced in contributor cookbook + release checklist |
+| REC-004 | Expand observability from logging baseline to metrics/tracing rollout. | ⏳ Deferred | API or worker promotion from Experimental to Beta | API Checkpoint 2 / Worker Checkpoint 2 | Explicit metrics/tracing contract and validation checks documented |
+| REC-005 | Enforce recommendation review gate in release and promotion workflows. | ✅ Adopted | Every release-prep or promotion PR | Continuous | Release checklist and PR traceability sections reference recommendation IDs |
+
 ### UI Skill-Library Checkpoints
 
 Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for UI overlays.

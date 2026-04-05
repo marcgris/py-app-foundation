@@ -6,6 +6,15 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+### Added
+- Copilot skills for API/workflow acceleration: `github-actions`, `python-api-endpoint`, `pydantic-models`, and `docstring-generation`.
+- Additional review agents: `test-writer`, `security-auditor`, and `docs-writer`.
+- Recommendation register governance section in roadmap with trigger-based recommendation tracking.
+
+### Changed
+- Contributor and release guidance now enforce recommendation-ID traceability for checkpoint and promotion PRs.
+- Dependency-management skill examples now align with `[dependency-groups]` conventions in `pyproject.toml`.
+
 ## [0.5.0] - 2026-04-05
 
 ### Added

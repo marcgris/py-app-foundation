@@ -78,8 +78,8 @@ redis = ["redis[hiredis]>=5.0.0"]
 
 # ── Tool Configuration ────────────────────────────────────────────────────────
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.0",
     "pytest-cov>=5.0.0",
@@ -165,8 +165,8 @@ versions. Only bound the upper version if you've tested that v+1 breaks things.
 Structure dev dependencies logically:
 
 ```toml
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     # Testing
     "pytest>=8.0",
     "pytest-asyncio>=0.23",
