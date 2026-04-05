@@ -103,7 +103,7 @@ This table is meant to answer two questions quickly:
 | UI Shared Base | Overlay foundation | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Shared cross-platform UI contract; see `ui-overlay-contract.md` |
 | UI Web Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Web-specific profile under UI overlay family |
 | UI Desktop Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Desktop-specific profile under UI overlay family |
-| UI Mobile Profile | Overlay profile | No | Planned | N/A | N/A | N/A | Mobile-specific profile under UI overlay family |
+| UI Mobile Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v0.5.0` or newer | Mobile-specific profile under UI overlay family |
 | API | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | Worker | Overlay | No | Planned | N/A | N/A | N/A | Overlay not implemented yet |
 | Scheduled Jobs/Cron | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
@@ -140,7 +140,7 @@ The UI overlay now uses a shared-base plus profile model:
 - UI Shared Base: Experimental
 - Web profile: Experimental
 - Desktop profile: Experimental
-- Mobile profile: Planned
+- Mobile profile: Experimental
 
 Implementation order remains UI before API and worker, with Web expected to be the first implemented profile.
 
