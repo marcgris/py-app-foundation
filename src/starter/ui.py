@@ -132,6 +132,12 @@ def validate_ui_desktop_skeleton() -> tuple[bool, list[str]]:
     required_paths: list[tuple[Path, str, str]] = [
         (get_ui_overlay_root(), "ui overlay root", "dir"),
         (get_ui_shared_base_dir(), "ui shared base directory", "dir"),
+        (get_ui_shared_base_dir() / "README.md", "ui shared base readme", "file"),
+        (
+            get_ui_shared_base_dir() / "design-tokens.css",
+            "ui shared base design tokens",
+            "file",
+        ),
         (get_ui_desktop_profile_dir(), "ui desktop profile directory", "dir"),
         (get_ui_desktop_profile_dir() / "README.md", "ui desktop profile readme", "file"),
         (get_ui_desktop_entry_file(), "ui desktop entry script", "file"),
@@ -155,6 +161,12 @@ def validate_ui_mobile_skeleton() -> tuple[bool, list[str]]:
     required_paths: list[tuple[Path, str, str]] = [
         (get_ui_overlay_root(), "ui overlay root", "dir"),
         (get_ui_shared_base_dir(), "ui shared base directory", "dir"),
+        (get_ui_shared_base_dir() / "README.md", "ui shared base readme", "file"),
+        (
+            get_ui_shared_base_dir() / "design-tokens.css",
+            "ui shared base design tokens",
+            "file",
+        ),
         (get_ui_mobile_profile_dir(), "ui mobile profile directory", "dir"),
         (get_ui_mobile_profile_dir() / "README.md", "ui mobile profile readme", "file"),
         (get_ui_mobile_entry_file(), "ui mobile entry script", "file"),

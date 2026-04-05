@@ -57,7 +57,7 @@ Current baseline status snapshot:
 | UI Mobile Profile | Completed | Implemented and marked `Experimental` |
 | Checkpoint 1 (skill-library) | Completed | Recorded in roadmap |
 | Checkpoint 2 (skill-library) | Completed | Recorded in roadmap |
-| Checkpoint 3 (skill-library) | Not yet completed | Required before Beta promotion |
+| Checkpoint 3 (skill-library) | Completed | Recorded in roadmap hardening outcomes |
 | Beta freeze statement for UI surfaces | Not yet completed | Must be added in release docs/changelog when promoting |
 | One full release cycle stability evidence | Not yet completed | Required by UI contract promotion guidance |
 

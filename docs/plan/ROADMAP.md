@@ -101,7 +101,7 @@ Use these checkpoints to evaluate opportunities to adopt content from `python-co
 
 1. ✅ Checkpoint 1 (current): Run a gap assessment immediately after UI Shared Base + Web profile merge.
 2. ✅ Checkpoint 2: Re-run assessment before starting UI Desktop profile implementation.
-3. ⏳ Checkpoint 3 (hardening): Re-run assessment before promoting UI Shared Base or Web profile from Experimental to Beta.
+3. ✅ Checkpoint 3 (hardening): Re-run assessment before promoting UI Shared Base or Web profile from Experimental to Beta.
 
 Checkpoint 1 outcome summary:
 
@@ -113,6 +113,13 @@ Checkpoint 2 outcome summary:
 
 1. Continue adopted set: `python-testing`, `security-audit`, and `github-actions` for Desktop profile smoke checks and CI gating.
 2. Keep deferred set for later hardening: `observability`, `dependency-management`, and `python-refactor`.
+
+Checkpoint 3 outcome summary:
+
+1. Keep adopted set unchanged for current UI profile scope: `python-testing`, `security-audit`, and `github-actions`.
+2. Keep `observability` deferred until UI runtime instrumentation requirements are introduced (for example, telemetry/correlation for a production UI runtime layer).
+3. Keep `dependency-management` and `python-refactor` deferred to API/worker overlay implementation phases where toolchain and architectural complexity increase.
+4. UI profiles remain `Experimental` until Beta freeze notes and one full release-cycle stability evidence are documented.
 
 ## Upcoming Work
 
