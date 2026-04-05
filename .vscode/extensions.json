@@ -3,7 +3,6 @@
     "ms-python.python",
     "ms-python.pylance",
     "charliermarsh.ruff",
-    "github.copilot",
     "github.copilot-chat",
     "github.vscode-pull-request-github",
     "redhat.vscode-yaml",
