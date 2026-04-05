@@ -29,7 +29,7 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 4. Security scanning and supply-chain checks.
 5. CI workflows and local validation workflow.
 6. Agent instruction files and guardrails.
-7. First-wave overlays for CLI, API, worker, and UI projects.
+7. First-wave overlays for CLI, UI, API, and worker projects.
 8. Planning artifacts and handoff process.
 
 ## Out of Scope
@@ -45,7 +45,7 @@ This repository defines Py App Foundation, a reusable foundation for building pr
 1. **Phase 1**: Planning artifacts, scope boundaries, and architecture decisions. ✅ Complete
 2. **Phase 2**: Core template skeleton and repository structure. ✅ Complete
 3. **Phase 3**: Agent workflow, validation stack, and CI guardrails.
-4. **Phase 4**: CLI, API, worker, and UI overlays.
+4. **Phase 4**: CLI, UI, API, and worker overlays.
 5. **Phase 5**: Validation, sample generation, and release readiness.
 
 ## Current Focus
@@ -95,16 +95,30 @@ Retire this roadmap subsection when all of the following are true:
 3. Pre-release quality gates include the adopted AI-assisted checks.
 4. The team is using the embedded workflows consistently without referencing this temporary plan.
 
+### UI Skill-Library Checkpoints
+
+Use these checkpoints to evaluate opportunities to adopt content from `python-copilot-skill-library` for UI overlays.
+
+1. ✅ Checkpoint 1 (current): Run a gap assessment immediately after UI Shared Base + Web profile merge.
+2. ⏳ Checkpoint 2 (next): Re-run assessment before starting UI Desktop profile implementation.
+3. ⏳ Checkpoint 3 (hardening): Re-run assessment before promoting UI Shared Base or Web profile from Experimental to Beta.
+
+Checkpoint 1 outcome summary:
+
+1. Adopt now: `python-testing`, `security-audit`, and `github-actions` guidance for UI profile smoke checks, release gating, and CI hardening.
+2. Defer to Checkpoint 2: `observability`, `dependency-management`, and `python-refactor` guidance after Desktop profile runtime/tooling decisions are concrete.
+3. Skip for current UI scope: `python-api-endpoint`, `pydantic-models`, and `db-migrations` because current UI work is static/profile-shell focused.
+
 ## Upcoming Work
 
 1. ✅ Complete core package modules (config.py, logging.py, exceptions.py).
 2. ✅ Create test infrastructure with working fixtures and smoke tests.
 3. ✅ Configure and validate the local CI workflow (uv sync, pytest, ruff, pyright, bandit).
 4. ✅ Create the CLI overlay skeleton.
-5. Create the API overlay skeleton.
-6. Create the worker overlay skeleton.
-7. Create the UI overlay skeleton.
-8. Verify all four overlays pass validation.
+5. ✅ Create the UI Shared Base + Web profile skeleton aligned to `docs/guide/ui-overlay-contract.md`.
+6. Create the API overlay skeleton.
+7. Create the worker overlay skeleton.
+8. Verify all planned overlays and UI profiles pass validation.
 9. Document the bootstrap and generation process.
 10. Prepare v1 release and maintenance guidelines.
 

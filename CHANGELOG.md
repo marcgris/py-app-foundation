@@ -6,6 +6,18 @@ The format is based on Keep a Changelog and this project follows Semantic Versio
 
 ## [Unreleased]
 
+### Added
+- UI overlay Shared Base skeleton and Web profile skeleton under `src/starter/ui/`.
+- UI overlay helper module (`starter.ui`) for deterministic skeleton discovery and validation.
+- UI smoke and unit tests for shared-base and web-profile contract coverage:
+	- `tests/unit/test_ui.py`
+	- `tests/integration/test_ui_smoke.py`
+
+### Changed
+- Updated overlay compatibility matrix to track UI as Shared Base plus Web/Desktop/Mobile profiles.
+- Marked UI Shared Base and UI Web Profile as `Experimental` in documentation.
+- Marked roadmap UI Shared Base + Web profile skeleton item as completed.
+
 ## [0.4.0] - 2026-04-04
 
 ### Added
