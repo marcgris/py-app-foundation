@@ -4,14 +4,14 @@ build-backend = "hatchling.build"
 
 [project]
 name = "py-app-foundation"
-version = "1.0.0"
+version = "0.2.1"
 description = "A reusable, professional Python app foundation for building secure, well-designed applications"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 authors = [{ name = "Py App Foundation Contributors" }]
 requires-python = ">=3.14"
 classifiers = [
-    "Development Status :: 5 - Production/Stable",
+    "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
@@ -45,9 +45,6 @@ dev = [
 Repository = "https://github.com/marcgris/py-app-foundation"
 Documentation = "https://github.com/marcgris/py-app-foundation/tree/main/docs"
 Issues = "https://github.com/marcgris/py-app-foundation/issues"
-
-[project.scripts]
-starter = "starter.cli:run"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/starter"]
