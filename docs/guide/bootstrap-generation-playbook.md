@@ -15,17 +15,20 @@ By the end of this guide, you will have:
 
 ```mermaid
 flowchart TD
-    A[Start: Pick project scope] --> B[Create repo from template]
-    B --> C[Clone locally]
-    C --> D[Install dependencies with uv sync]
-    D --> E[Run full validation gates]
-    E --> F{Need overlays now?}
-    F -->|No| G[Begin core-only development]
-    F -->|Yes| H[Select overlays by project shape]
-    H --> I[Run overlay-specific smoke tests]
-    I --> J[Implement feature with tests]
-    J --> K[Run full validation gates]
-    K --> L[Open PR]
+    A[Start: Create app spec] --> B{Review and approve spec}
+    B -->|TBD items OK| C[Create repo from template]
+    B -->|Unclear| D[Revise spec]
+    D --> B
+    C --> E[Clone locally]
+    E --> F[Install dependencies with uv sync]
+    F --> G[Run full validation gates]
+    G --> H{Need overlays?}
+    H -->|No| I[Begin core-only development]
+    H -->|Yes| J[Select overlays from spec]
+    J --> K[Run overlay-specific smoke tests]
+    K --> L[Implement feature with tests]
+    L --> M[Run full validation gates]
+    M --> N[Open PR]
 ```
 
 ## Project Shape Decision Map
@@ -40,6 +43,68 @@ Use this table before writing code.
 | Mobile shell app | Core + UI Mobile | `uv run pytest tests/unit/test_ui_mobile.py tests/integration/test_ui_mobile_smoke.py -v` |
 | Service/API boundary | Core + API | `uv run pytest tests/unit/test_api.py tests/integration/test_api_smoke.py -v` |
 | Background processing | Core + Worker | `uv run pytest tests/unit/test_worker.py tests/integration/test_worker_smoke.py -v` |
+
+## Step 0: Create and Review Application Specification
+
+Before creating the repository, **document your project's requirements and constraints in an application specification**. This ensures overlay selection is driven by actual needs, not guesswork, and creates a durable record of architectural decisions.
+
+### Why Specification First?
+
+- Prevents mid-project overlay regrets
+- Guides architecture, feature scope, and tech stack choices
+- Creates a record of decisions for future maintainers and team members
+- Helps AI agents and code reviewers understand intent without verbal context
+- Reduces rework when scope shifts are caught early
+
+### Get the Template
+
+The template is at `docs/plan/app-spec.md` in py-app-foundation:
+
+```bash
+cp path/to/py-app-foundation/docs/plan/app-spec.md ./app-spec-YOUR_PROJECT_NAME.md
+```
+
+Or reference the completed example: `py-app-foundation/docs/plan/app-spec-luminara.md` demonstrates a filled spec for an art museum display application (Luminara).
+
+### Fill Out These Sections (Minimum Viable Spec)
+
+Complete these sections before moving to Step 1:
+
+1. **Product Goal** — one-sentence description, primary users, top 3 user actions for v1
+2. **App Shape** — which overlays (CLI, API, UI, Worker) and why
+3. **Data and State** — persistence strategy (yes/no), storage choice, core entities
+4. **Integrations** — external APIs, auth, special runtime needs (TTS, webhooks, etc.)
+5. **Runtime and Deployment** — where it runs, OS constraints, environment strategy (dev-only vs prod)
+6. **v1 Must-Have Features** — 3-5 non-negotiable features that define success
+7. **Open Questions** — decisions still TBD (technology choices, hardware target, etc.)
+
+### TBD Is Acceptable
+
+Yes—use "TBD" for unknowns and revisit before implementation. The goal is to trap high-level assumptions early, not eliminate all uncertainty. For example:
+
+- "Which museum APIs?" → OK to leave as TBD if you have time to research later
+- "TTS engine choice?" → OK to defer if you have a reasonable default fallback
+
+But high-level shape choices (REST+WebSocket vs GraphQL, single process vs services) should be reasoned through.
+
+### Store It Somewhere Durable
+
+Once completed, store your spec in version control:
+
+```
+luminara-app/
+├── docs/
+│   └── plan/
+│       └── app-spec-luminara.md  ← your completed requirements
+├── src/
+└── ...
+```
+
+### Approval and Go/No-Go
+
+Review the spec with anyone who will work on the project (team, stakeholders, yourself). Once stable, move to Step 1.
+
+If reviewing or sketching for an AI agent, include the spec in your prompts—it acts as the contract for reliability and prevents scope creep.
 
 ## Step 1: Prerequisites
 
