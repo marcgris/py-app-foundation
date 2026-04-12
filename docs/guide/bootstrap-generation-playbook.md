@@ -1,10 +1,11 @@
+
+# Bootstrap and Generation Playbook
+
 ## Required Project Instructions Files
 
 Every new project **must** include a `.copilot-instructions.md` file at the project root. This file sets guardrails and workflow expectations for Copilot agents and contributors. Copy and adapt the template from py-app-foundation, updating project-specific paths as needed.
 
 You must also follow the [agent and skill file placement guide](../../luminara-app/docs/guide/agent-skill-file-placement.md) to ensure `.github/skills/` and `.github/instructions/` are set up for agent discovery.
-
-# Bootstrap and Generation Playbook
 
 This guide is intentionally explicit. It is designed for copy-paste execution with minimal interpretation.
 
@@ -41,14 +42,14 @@ flowchart TD
 
 Use this table before writing code.
 
-| If your project needs... | Start with... | Overlay validation commands |
-|---|---|---|
-| Command-line workflows | Core + CLI | `uv run starter health` and `uv run pytest tests/unit/test_cli.py tests/integration/test_cli_smoke.py -v` |
-| Browser UI prototype | Core + UI (Shared Base + Web) | `uv run pytest tests/unit/test_ui.py tests/integration/test_ui_smoke.py -v` |
-| Desktop shell app | Core + UI Desktop | `uv run pytest tests/unit/test_ui_desktop.py tests/integration/test_ui_desktop_smoke.py -v` |
-| Mobile shell app | Core + UI Mobile | `uv run pytest tests/unit/test_ui_mobile.py tests/integration/test_ui_mobile_smoke.py -v` |
-| Service/API boundary | Core + API | `uv run pytest tests/unit/test_api.py tests/integration/test_api_smoke.py -v` |
-| Background processing | Core + Worker | `uv run pytest tests/unit/test_worker.py tests/integration/test_worker_smoke.py -v` |
+| If your project needs...      | Start with...                | Overlay validation commands                                                                 |
+| ---------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------ |
+| Command-line workflows       | Core + CLI                   | `uv run starter health` and `uv run pytest tests/unit/test_cli.py tests/integration/test_cli_smoke.py -v` |
+| Browser UI prototype         | Core + UI (Shared Base + Web)| `uv run pytest tests/unit/test_ui.py tests/integration/test_ui_smoke.py -v`                |
+| Desktop shell app            | Core + UI Desktop            | `uv run pytest tests/unit/test_ui_desktop.py tests/integration/test_ui_desktop_smoke.py -v`|
+| Mobile shell app             | Core + UI Mobile             | `uv run pytest tests/unit/test_ui_mobile.py tests/integration/test_ui_mobile_smoke.py -v`  |
+| Service/API boundary         | Core + API                   | `uv run pytest tests/unit/test_api.py tests/integration/test_api_smoke.py -v`              |
+| Background processing        | Core + Worker                | `uv run pytest tests/unit/test_worker.py tests/integration/test_worker_smoke.py -v`        |
 
 ## Step 0: Create and Review Application Specification
 
