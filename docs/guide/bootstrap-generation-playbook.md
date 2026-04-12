@@ -1,3 +1,9 @@
+## Required Project Instructions Files
+
+Every new project **must** include a `.copilot-instructions.md` file at the project root. This file sets guardrails and workflow expectations for Copilot agents and contributors. Copy and adapt the template from py-app-foundation, updating project-specific paths as needed.
+
+You must also follow the [agent and skill file placement guide](../../luminara-app/docs/guide/agent-skill-file-placement.md) to ensure `.github/skills/` and `.github/instructions/` are set up for agent discovery.
+
 # Bootstrap and Generation Playbook
 
 This guide is intentionally explicit. It is designed for copy-paste execution with minimal interpretation.

@@ -1,3 +1,18 @@
+## Step 0.1: Required Planning and Contributor Docs
+
+Every new project **must** include the following files, copied and adapted from the template root:
+
+- `TEMPLATE_ROADMAP.md` → `docs/plan/ROADMAP.md`
+- `TEMPLATE_DECISIONS.md` → `docs/plan/DECISIONS.md`
+- `TEMPLATE_CONTRIBUTING.md` → `docs/guide/CONTRIBUTING.md`
+
+Update these files as your project evolves. They are referenced by `.copilot-instructions.md` and are required for agent and contributor workflow clarity.
+## Step 0: Required Project Instructions Files
+
+Every new project **must** include a `.copilot-instructions.md` file at the project root. This file sets guardrails and workflow expectations for Copilot agents and contributors. Copy and adapt the template from py-app-foundation, updating project-specific paths as needed.
+
+You must also follow the [agent and skill file placement guide](../../luminara-app/docs/guide/agent-skill-file-placement.md) to ensure `.github/skills/` and `.github/instructions/` are set up for agent discovery.
+
 # New Project Checklist
 
 Use this checklist every time you generate a new project from the Py App Foundation template.
