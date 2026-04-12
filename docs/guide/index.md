@@ -7,15 +7,19 @@ Welcome to Py App Foundation—a reusable, professional, secure foundation for b
 This repository is a template and reference implementation for bootstrapping production-grade Python projects. It provides:
 
 - **Strong Defaults**: Linting, type-checking, testing, and security scanning out of the box
-- **Composable Architecture**: One core foundation plus optional overlays for CLI, API, and background worker applications
+- **Composable Architecture**: One core foundation plus optional overlays for CLI, UI, API, and background worker applications
 - **Agent-Friendly**: Explicit guardrails and instruction files that make autonomous development workflows reliable
 - **Framework-Light**: No premature choices about web frameworks, ORMs, or deployment targets
 
 ## Quick Links
 
 - **Starting a New Project**: See [new-project.md](new-project.md)
+- **Bootstrap and Generation Playbook**: See [bootstrap-generation-playbook.md](bootstrap-generation-playbook.md)
 - **For Contributors**: See [contributing.md](contributing.md)
 - **For Releases**: See [release-checklist.md](release-checklist.md)
+- **For Maintenance**: See [maintenance-guidelines.md](maintenance-guidelines.md)
+- **CLI Command Contract**: See [cli-command-contract.md](cli-command-contract.md)
+- **UI Overlay Contract**: See [ui-overlay-contract.md](ui-overlay-contract.md)
 - **For Design Context**: See the [planning docs](../plan/ROADMAP.md)
 - **Architecture Details**: See [ARCHITECTURE.md](../plan/ARCHITECTURE.md)
 - **Change History**: See [../../CHANGELOG.md](../../CHANGELOG.md)
@@ -62,6 +66,20 @@ uv run bandit -r src/            # Security scan
 
 For more detailed guidance, see [contributing.md](contributing.md).
 
+## Copilot Capabilities (Phase A)
+
+To support incremental adoption, the base template currently enables a focused quality set:
+
+1. Skills:
+ - dependency-management
+ - python-testing
+ - python-refactor
+ - security-audit
+2. Agent:
+ - code-reviewer
+
+Overlay-specific skills and agents are intentionally deferred until overlay implementation phases.
+
 ## Overlays
 
 This core is designed to be extended:
@@ -73,42 +91,83 @@ This core is designed to be extended:
 
 Each overlay adds minimal framework-specific code while inheriting the core's validation and guardrails.
 
-### Overlay Compatibility Matrix
+### Template And Overlay Compatibility Matrix
 
-Use this matrix to track base template and overlay maturity while keeping a single repository version stream.
+This table is meant to answer two questions quickly:
 
-| Overlay | Status | Introduced In | Last Breaking Change | Current Stable As Of | Notes |
-|---------|--------|---------------|----------------------|----------------------|-------|
-| Core/Base Template | Beta | v0.1.0 | N/A | v0.2.1 | Implemented and validated; overall project remains pre-v1 |
-| CLI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| API | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| Worker | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| UI | Planned | N/A | N/A | N/A | Overlay not implemented yet |
-| Scheduled Jobs/Cron | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| Data/ETL Pipeline | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| MCP Server | Backlog | N/A | N/A | N/A | Candidate for later demand |
-| Library/Package-Only | Backlog | N/A | N/A | N/A | Candidate for later demand |
+1. What is included by default in a core-only project?
+2. Which release tag should I start from for a given capability?
 
-Status definitions:
+| Component | Type | Included In Core-Only Project | Current Status | First Available | Status Since | Recommended Starting Tag | Notes |
+|-----------|------|-------------------------------|----------------|-----------------|--------------|--------------------------|-------|
+| Core/Base Template | Base foundation | Yes | Stable | v0.1.0 | v1.0.0 | Latest release tag (currently `v1.0.0`) | Foundation modules and validation stack used by all project types |
+| CLI | Overlay | No | Beta | v0.3.0 | v0.4.0 | `v1.0.0` or newer | Commands: `starter health`, `starter config show`, `starter --version`; compatibility contract documented |
+| UI Shared Base | Overlay foundation | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Shared cross-platform UI contract; see `ui-overlay-contract.md` |
+| UI Web Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Web-specific profile under UI overlay family |
+| UI Desktop Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Desktop-specific profile under UI overlay family |
+| UI Mobile Profile | Overlay profile | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Mobile-specific profile under UI overlay family |
+| API | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Framework-light API profile skeleton with deterministic health contract |
+| Worker | Overlay | No | Experimental | v0.5.0 | v0.5.0 | `v1.0.0` or newer | Framework-light worker profile skeleton with deterministic job-result contract |
+| Scheduled Jobs/Cron | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Data/ETL Pipeline | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| MCP Server | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
+| Library/Package-Only | Overlay candidate | No | Backlog | N/A | N/A | N/A | Candidate for later demand |
 
-- Planned: designed but not implemented
-- Backlog: candidate overlay tracked for future planning
-- Experimental: implemented, may change quickly
-- Beta: feature-complete for trial usage
-- Stable: production-ready with managed compatibility expectations
+Status legend used in the table:
+
+- Planned: designed but not implemented.
+- Backlog: candidate tracked for future planning.
+- Experimental: implemented, may change quickly.
+- Beta: feature-complete for trial usage.
+- Stable: production-ready with managed compatibility expectations.
+
+Core-only quick rule:
+
+- Use `v0.2.1` if you want a snapshot with no implemented overlays present in the template.
+- Use latest release tag if you want current core improvements and are okay with CLI overlay code being present.
 
 Core/Base Template stability rule: move from Beta to Stable when v1.0.0 is released, all planned overlays pass the full validation gate, and release documentation confirms no open v1 exit criteria.
 
+### CLI Status
+
+CLI reached Beta in `v0.4.0`.
+
+For current compatibility guarantees and command contract details, see [cli-command-contract.md](cli-command-contract.md).
+For the release history of this status change, see [../../CHANGELOG.md](../../CHANGELOG.md).
+
+### UI Status
+
+The UI overlay now uses a shared-base plus profile model:
+
+- UI Shared Base: Experimental
+- Web profile: Experimental
+- Desktop profile: Experimental
+- Mobile profile: Experimental
+
+Implementation order remains UI before API and worker, with Web expected to be the first implemented profile.
+
+For the UI overlay contract and profile rules, see [ui-overlay-contract.md](ui-overlay-contract.md).
+
 Recommended implementation order (current):
 
-1. CLI
-2. UI
-3. API
-4. Worker
-5. MCP Server (backlog)
-6. Scheduled Jobs/Cron (backlog)
-7. Data/ETL Pipeline (backlog)
-8. Library/Package-Only (backlog)
+Effort baseline: CLI overlay implementation is treated as 100%.
+
+1. CLI (100%)
+ Context: First proof-of-concept for the overlay model and command contract baseline. Completed in v0.4.0 Beta.
+2. UI (120%)
+ Context: High anticipated demand; adds frontend structure, build workflow, and local integration boundary. Slightly higher effort than CLI due to tooling and UX validation.
+3. API (160%)
+ Context: Highest effort among planned overlays because framework and service-boundary decisions are still open; includes route contracts, request/response validation, and integration testing patterns.
+4. Worker (130%)
+ Context: Adds background execution patterns, scheduler or queue boundaries, retry/error semantics, and worker-focused observability.
+5. MCP Server (backlog, 175%)
+ Context: Tooling and protocol boundary work is broader than a single app shape; expected to require command/tool contract design, integration testing strategy, and additional operational guidance.
+6. Scheduled Jobs/Cron (backlog, 115%)
+ Context: Moderately above CLI; adds scheduling semantics, idempotency expectations, failure handling, and runtime execution policies.
+7. Data/ETL Pipeline (backlog, 185%)
+ Context: High complexity profile with data-flow boundaries, transform reliability, schema evolution concerns, and stronger validation/performance expectations.
+8. Library/Package-Only (backlog, 70%)
+ Context: Lower relative implementation effort because runtime entrypoints are minimal, but still requires packaging, API surface, and compatibility discipline.
 
 ## Design Philosophy
 
